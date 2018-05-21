@@ -78,7 +78,7 @@
       }, error);
   }
   function copy_index(swipe_path) {
-    fs.copyFile(__dirname + "/template/index.html", swipe_path + "/index.html", (err) => {});
+    fs.createReadStream(__dirname + "/template/index.html").pipe(fs.createWriteStream(swipe_path + "/index.html"));
   }
   function parseLayer(layer, doc) {
     var ret = [];
