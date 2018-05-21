@@ -1,0 +1,16 @@
+{
+  "name": "swipeGenerator",
+  "version": "1.0.0",
+  "description": "swipe Generator",
+  "main": "main.js",
+  "generator-core-version": "1 - 3.11",
+  "license": "Public Domain",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

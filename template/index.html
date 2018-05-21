@@ -1,0 +1,64 @@
+
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script src="http://www.swipe.net/sample/js/jQueryRotate.js"></script>
+  <script src="http://www.swipe.net/sample/js/mediaelement/mediaelement-and-player.min.js"></script>
+  <script src="http://www.swipe.net/sample/js/snap.svg.js"></script>
+  <link rel="stylesheet" href="http://www.swipe.net/sample/swipe.css" />
+  <link rel="stylesheet" href="http://www.swipe.net/sample/js/mediaelement/mediaelementplayer.css" />
+
+  <script src='https://js.swipe.net/js/swipe.js'></script>
+
+  <script>
+    function callback(json) {
+      SwipeUtil.initSwipe(json, "#swipe", "#swipe_back");
+      var swipe_book = SwipeUtil.getSwipeBook();
+      $("#arrowleft").on("click", function() { swipe_book.back(); });
+      $("#arrowright").on("click", function() { swipe_book.next(); });
+    }
+
+    $(document).ready(function () {
+      var script = document.createElement('script');
+      if (SwipeUtil.getParameterByName("file")) {
+        script.src = SwipeUtil.getParameterByName("file");
+      } else {
+        script.src = './main.swipe';
+      }
+      document.body.appendChild(script);
+      
+    });
+  </script> 
+
+  
+  <style type="text/css">
+    <!--
+	#arrowleft {
+	top: 50%;
+	position: absolute;
+	left: 20px;
+	}
+	#arrowright {
+	top: 50%;
+	position: absolute;
+	right: 20px;
+	}
+      -->
+    
+  </style>
+
+
+  <title>Swipe</title>			
+  </head>
+  <body>
+    <div id="swipe_back">
+      <img src="http://www.swipe.net/images/ArrowLeft.png" id="arrowleft">
+      <div id="swipe">
+      </div>
+      <img src="http://www.swipe.net/images/ArrowRight.png" id="arrowright">
+    </div>
+  </body>
+  
+</html>
