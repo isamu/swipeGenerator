@@ -58,8 +58,21 @@
         }
 
         var ret = [];
+        var i = 0;
         gDoc.layers.forEach((layer) => {
-          ret.push({elements: parseLayer(layer, gDoc)});
+          if (layer.type !== "layerSection") {
+            ret.push({
+              elements: [parseElement(layer, gDoc)],
+              scene: "s" + i,
+            });
+          } else {
+            var pages = parseLayer(layer, gDoc).map((page) => {
+              page["scene"] = "s" + i;
+              return page;
+            });
+            ret = ret.concat(pages);
+          }
+          i = i + 1;
         });
         var swipe = {
 	        type: "net.swipe.swipe",
@@ -80,38 +93,47 @@
   function copy_index(swipe_path) {
     fs.createReadStream(__dirname + "/template/index.html").pipe(fs.createWriteStream(swipe_path + "/index.html"));
   }
+  function parseElement(layer, doc) {
+    var elem = {
+      id: (layer.smartObject) ? layer.smartObject.ID : layer.id
+    }
+    if (layer.type === "textLayer") {
+      elem.text = layer.text.textKey;
+    }
+    if (layer.type === "layer") {
+      var map = _G.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
+        var swipe_path = getDirName(doc);
+        _G.savePixmap(map, swipe_path + "/" + layer.id + ".jpg",
+                      { ppi: 72, format: "jpg" });
+      });
+    }
+    if (layer.smartObject ) {
+      elem.img = layer.id + ".jpg";
+    }
+    if (layer.bounds) {
+      elem.y = layer.bounds.top;
+      elem.x = layer.bounds.left;
+      elem.h = layer.bounds.bottom - layer.bounds.top;
+      elem.w = layer.bounds.right - layer.bounds.left;
+    }
+    return elem;
+  }
+  // return array
   function parseLayer(layer, doc) {
     var ret = [];
 
-    if (layer.type !== "layerSection") {
-      var elem = {
-        id: layer.id,
-      }
-      if (layer.type === "textLayer") {
-        elem.text = layer.text.textKey;
-      }
-      if (layer.type === "layer") {
-        var map = _G.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
-          var swipe_path = getDirName(doc);
-          _G.savePixmap(map, swipe_path + "/" + layer.id + ".jpg",
-                        { ppi: 72, format: "jpg" });
-        });
-      }
-      if (layer.smartObject ) {
-        elem.img = layer.id + ".jpg";
-      }
-      if (layer.bounds) {
-        elem.y = layer.bounds.top;
-        elem.x = layer.bounds.left;
-        elem.h = layer.bounds.bottom - layer.bounds.top;
-        elem.w = layer.bounds.right - layer.bounds.left;
-      }
-      ret.push(elem);
-    }
     if (layer.layers) {
-      layer.layers.forEach((nested_layer) => { 
-        ret = ret.concat(parseLayer(nested_layer, doc));
+      var elems = [];
+      layer.layers.forEach((nested_layer) => {
+        if (nested_layer.type !== "layerSection") { 
+          elems.push(parseElement(nested_layer, doc));
+        } else {
+          ret = ret.concat(parseLayer(nested_layer, doc));
+        }
       });
+      if (elems.length > 0) {
+        ret.push({elements: elems});
+      }
     }
     return ret;
   }
