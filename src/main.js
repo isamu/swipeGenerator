@@ -42,43 +42,43 @@ var Parser = require('./parser.js');
   }
   function init(generator) {
     _G = generator;
-    
     _G.addMenuItem(MENU_GENERATOR_SWIPE, "Generate swipe", true, false);
     _G.onPhotoshopEvent("generatorMenuChanged", onGeneratorDOMMenuClick);
-
-    
   }
   function getDirName(doc) {
     const paths = doc.file.split("/");
     return _desktopDirectory + "/" + paths[paths.length -1].split(".")[0];
   }
   function onGeneratorDOMMenuClick(event) {
-    _G.getDocumentInfo(null, docInfoFlags).then(
-      function (gDoc) {
-        const swipe_path = getDirName(gDoc);
-        if (!fs.existsSync(swipe_path)) {
-          fs.mkdirSync(swipe_path);
-        }
-        const parse = new Parser(gDoc, _G, _desktopDirectory);
-        
-        var swipe = {
-	        type: "net.swipe.swipe",
-	        title: "from photoshop",
-	        dimension: [720, 1280],
-          pages: parse.getPages(),
-        }
-        if (gDoc.bounds) {
-          swipe.dimension = [gDoc.bounds.right - gDoc.bounds.left, gDoc.bounds.bottom - gDoc.bounds.top];
-        }
-        var filename = "main.swipe"
-        // fs.writeFileSync(swipe_path + "/" + filename, stringify(swipe));
-        fs.writeFileSync(swipe_path + "/" + filename, "callback(" + stringify(swipe) + ")");
-        copy_index(swipe_path);
-        // console.log(stringify(swipe));
-      }, error);
+    _G.getDocumentInfo(null, docInfoFlags).then((gDoc) => {
+      const swipePath = getDirName(gDoc);
+      if (!fs.existsSync(swipePath)) {
+        fs.mkdirSync(swipePath);
+      }
+      const parse = new Parser(gDoc, _G, swipePath);
+
+      const res = parse.getPages()
+      var swipe = {
+	      type: "net.swipe.swipe",
+	      title: "from photoshop",
+	      dimension: [720, 1280],
+        pages: res.pages,
+        templates: {
+          pages: res.templates,
+        },
+      }
+      if (gDoc.bounds) {
+        swipe.dimension = [gDoc.bounds.right - gDoc.bounds.left, gDoc.bounds.bottom - gDoc.bounds.top];
+      }
+      var filename = "main.swipe"
+      // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
+      fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");
+      copyIndex(swipePath);
+      // console.log(stringify(swipe));
+    }, error);
   }
-  function copy_index(swipe_path) {
-    fs.createReadStream(__dirname + "/template/index.html").pipe(fs.createWriteStream(swipe_path + "/index.html"));
+  function copyIndex(swipePath) {
+    fs.createReadStream(__dirname + "/template/index.html").pipe(fs.createWriteStream(swipePath + "/index.html"));
   }
   module.exports.init = init;
 }());

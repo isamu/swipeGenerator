@@ -1,8 +1,8 @@
 class Parser {
-  constructor(doc, generator, path_prefix) {
+  constructor(doc, generator, swipePath) {
     this.doc = doc;
     this.generator = generator;
-    this.path_prefix = path_prefix;
+    this.swipePath = swipePath;
   }
 
   getPages() {
@@ -10,32 +10,82 @@ class Parser {
     var i = 0;
     const doc = this.doc;
     const instance = this;
-    doc.layers.forEach((layer) => {
-      var page = [];
-      if (layer.type !== "layerSection") {
-        pages.push({
-          elements: [instance.parseElement(layer, doc)],
-          scene: "s" + i,
-        });
-      } else {
-        pages = instance.parseLayer(layer, doc).map((page) => {
-          page["scene"] = "s" + i;
-          return page;
+
+    const templates = {};
+    if (doc && doc.layers) {
+      doc.layers.forEach((layer) => {
+        var pages = [];
+        if (layer.type !== "layerSection") {
+          pages.push({
+            elements: [instance.parseElement(layer, doc)],
+            scene: "s" + i,
+          });
+        } else {
+          pages = instance.parseLayer(layer, doc).map((page) => {
+            page["scene"] = "s" + i;
+            return page;
+          });
+        }
+        const res = this.getTemplates(pages);
+        ret = ret.concat(res.pages);
+        templates["s" + i] = res.templates;
+        // console.log(JSON.stringify(template, null, 1));
+        i = i + 1;
+      });
+    }
+    return {pages: ret, templates: templates};
+  }
+  getTemplates(pages) {
+    let _pages = [];
+    let templatesCache = {}
+    let templates = [];
+    const instance = this;
+    pages.forEach((page) => {
+      let elements = [];
+      if (page.elements) {
+        page.elements.forEach((element) => {
+          if (!templatesCache[element.id]) {
+            let newElement =  Object.assign({}, element)
+            delete newElement.id
+            templatesCache[element.id] = newElement;
+            templates.push(element);
+            
+            elements.push({id: element.id});
+          } else {
+            elements.push(instance.diffElement(templatesCache[element.id], element));
+            templatesCache[element.id] = element;
+          }
         });
       }
-      ret = ret.concat(pages);
-      
-      i = i + 1;
+      _pages.push({elements: elements, scene: page.scene});
     });
-    return ret;
+    if (_pages.length > 0) {
+      _pages[0].play = "auto";
+    }
+    return {templates: {elements: templates, play: "scroll"}, pages: _pages};
   }
-  getDirName(doc) {
-    var paths = doc.file.split("/");
-    return this.path_prefix + "/" + paths[paths.length -1].split(".")[0];
+  diffElement(oldElement, newElement) {
+    const elementDiff = {
+      id: newElement.id,
+      x: oldElement.x,
+      y: oldElement.y,
+      to: { translate:
+            [newElement.x - oldElement.x,
+             newElement.y - oldElement.y]
+          },
+    }
+    if (newElement.h !== oldElement.h) {
+      elementDiff.h = newElement.h;
+    }
+    if (newElement.w !== oldElement.w) {
+      elementDiff.w = newElement.w;
+    }
+    return elementDiff;
   }
   parseElement(layer, doc) {
     const generator = this.generator;
     const instance = this;
+    const swipePath = this.swipePath;
     var elem = {
       id: (layer.smartObject) ? layer.smartObject.ID : layer.id
     }
@@ -43,11 +93,12 @@ class Parser {
       elem.text = layer.text.textKey;
     }
     if (layer.type === "layer") {
-      var map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
-        var swipe_path = instance.getDirName(doc);
-        generator.savePixmap(map, swipe_path + "/" + layer.id + ".jpg",
-                      { ppi: 72, format: "jpg" });
-      });
+      if (generator) {
+        var map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
+          generator.savePixmap(map, swipePath + "/" + layer.id + ".jpg",
+                               { ppi: 72, format: "jpg" });
+        });
+      }
     }
     if (layer.smartObject ) {
       elem.img = layer.id + ".jpg";
@@ -67,11 +118,11 @@ class Parser {
     
     if (layer.layers) {
       var elems = [];
-      layer.layers.forEach((nested_layer) => {
-        if (nested_layer.type !== "layerSection") { 
-          elems.push(instance.parseElement(nested_layer, doc));
+      layer.layers.forEach((nestedLayer) => {
+        if (nestedLayer.type !== "layerSection") { 
+          elems.push(instance.parseElement(nestedLayer, doc));
         } else {
-          ret = ret.concat(instance.parseLayer(nested_layer, doc));
+          ret = ret.concat(instance.parseLayer(nestedLayer, doc));
         }
       });
       if (elems.length > 0) {
