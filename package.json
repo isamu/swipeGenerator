@@ -7,10 +7,15 @@
   "license": "Public Domain",
   "readmeFilename": "README.md",
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/.bin/mocha tests/*test.js",
+    "watch": "npx babel src/ --presets full-node4  --watch --out-dir  ./"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-full-node4": "^1.0.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
