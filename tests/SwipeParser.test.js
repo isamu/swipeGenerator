@@ -41,6 +41,7 @@ describe('swipe', () => {
       assert.typeOf(res.templates, 'object');
       assert.isNotEmpty(res.templates);
 
+      // fs.writeFileSync(__dirname + "/testData/res1.json", JSON.stringify(res, null, 1));
       const res_json = JSON.parse(fs.readFileSync(__dirname + "/testData/res1.json", 'utf8'));
       assert.deepEqual(res, res_json)
     });
@@ -64,6 +65,7 @@ describe('swipe', () => {
       assert.isNotEmpty(res.templates);
 
       // console.log(JSON.stringify(res, null, 1));
+      // fs.writeFileSync(__dirname + "/testData/res2.json", JSON.stringify(res, null, 1));
       const res_json = JSON.parse(fs.readFileSync(__dirname + "/testData/res2.json", 'utf8'));
       assert.deepEqual(res, res_json)
     });
@@ -77,6 +79,7 @@ describe('swipe', () => {
       const res = parser.getPages();
 
       // console.log(JSON.stringify(res, null, 1));
+      // fs.writeFileSync(__dirname + "/testData/res3.json", JSON.stringify(res, null, 1));
       const res_json = JSON.parse(fs.readFileSync(__dirname + "/testData/res3.json", 'utf8'));
       assert.deepEqual(res, res_json)
     });
@@ -104,6 +107,7 @@ describe('swipe', () => {
                                         "w": 576
                                       });
       assert.deepEqual(diff, { id: '84068205-2521-1e4b-939e-86351085ed9a',
+                               opacity: 1,
                                x: 0,
                                y: 640,
                                to: { translate: [ 0, 0 ] } });
@@ -124,6 +128,7 @@ describe('swipe', () => {
                                           "w": 576
                                         });
       assert.deepEqual(diff2, { id: 'bcb00327-1ca5-5246-acca-3768c2345cca',
+                                opacity: 1,
                                 x: 0,
                                 y: 466,
                                 to: { translate: [ 0, -466 ] } });

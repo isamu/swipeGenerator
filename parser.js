@@ -59,22 +59,49 @@ class Parser {
     let templatesCache = {};
     let templates = [];
     const instance = this;
+
+    let prev_elements = {};
+    let current_elements = {};
+
+    let current_page = 0;
     pages.forEach(page => {
       let elements = [];
       if (page.elements) {
         page.elements.forEach(element => {
+          let status = "";
+          if (current_page > 0) {
+            if (prev_elements[element.id]) {
+              delete prev_elements[element.id];
+            } else {
+              status = "new";
+            }
+          }
+
           if (!templatesCache[element.id]) {
             let newElement = Object.assign({}, element);
             delete newElement.id;
             templatesCache[element.id] = newElement;
+
+            element.opacity = 0;
             templates.push(element);
 
-            elements.push({ id: element.id });
+            if (status === "new") {
+              elements.push(instance.appearElement({ id: element.id }));
+            } else {
+              elements.push({ id: element.id, opacity: 1 });
+            }
           } else {
             elements.push(instance.diffElement(templatesCache[element.id], element));
             templatesCache[element.id] = element;
           }
+          current_elements[element.id] = element;
         });
+        Object.keys(prev_elements).map(key => {
+          elements.push(instance.hideElement(prev_elements[key]));
+        });
+        prev_elements = current_elements;
+        current_elements = {};
+        current_page = current_page + 1;
       }
       _pages.push({ elements: elements, scene: page.scene });
     });
@@ -83,11 +110,26 @@ class Parser {
     }
     return { templates: { elements: templates, play: "scroll" }, pages: _pages };
   }
+  appearElement(element) {
+    element.opacity = 0;
+    element.to = {
+      opacity: 1
+    };
+    return element;
+  }
+  hideElement(element) {
+    element.opacity = 1;
+    element.to = {
+      opacity: 0
+    };
+    return element;
+  }
   diffElement(oldElement, newElement) {
     const elementDiff = {
       id: newElement.id,
       x: oldElement.x,
       y: oldElement.y,
+      opacity: 1,
       to: { translate: [newElement.x - oldElement.x, newElement.y - oldElement.y]
       }
     };

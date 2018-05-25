@@ -3,13 +3,16 @@
   {
    "elements": [
     {
-     "id": "84068205-2521-1e4b-939e-86351085ed9a"
+     "id": "84068205-2521-1e4b-939e-86351085ed9a",
+     "opacity": 1
     },
     {
-     "id": "bcb00327-1ca5-5246-acca-3768c2345cca"
+     "id": "bcb00327-1ca5-5246-acca-3768c2345cca",
+     "opacity": 1
     },
     {
-     "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d"
+     "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
+     "opacity": 1
     }
    ],
    "scene": "s0",
@@ -21,6 +24,7 @@
      "id": "84068205-2521-1e4b-939e-86351085ed9a",
      "x": 0,
      "y": 640,
+     "opacity": 1,
      "to": {
       "translate": [
        0,
@@ -32,6 +36,7 @@
      "id": "bcb00327-1ca5-5246-acca-3768c2345cca",
      "x": 0,
      "y": 466,
+     "opacity": 1,
      "to": {
       "translate": [
        0,
@@ -43,6 +48,7 @@
      "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
      "x": 0,
      "y": 314,
+     "opacity": 1,
      "to": {
       "translate": [
        0,
@@ -63,7 +69,8 @@
      "y": 640,
      "x": 0,
      "h": 384,
-     "w": 576
+     "w": 576,
+     "opacity": 0
     },
     {
      "id": "bcb00327-1ca5-5246-acca-3768c2345cca",
@@ -71,7 +78,8 @@
      "y": 466,
      "x": 0,
      "h": 432,
-     "w": 576
+     "w": 576,
+     "opacity": 0
     },
     {
      "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
@@ -79,7 +87,8 @@
      "y": 314,
      "x": 0,
      "h": 396,
-     "w": 288
+     "w": 288,
+     "opacity": 0
     }
    ],
    "play": "scroll"
