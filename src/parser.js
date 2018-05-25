@@ -101,12 +101,12 @@ class Parser {
         current_elements = {};
         current_page = current_page + 1;
       }
-      _pages.push({elements: elements, scene: page.scene});
+      _pages.push({elements: elements.reverse(), scene: page.scene});
     });
     if (_pages.length > 0) {
       _pages[0].play = "auto";
     }
-    return {templates: {elements: templates, play: "scroll"}, pages: _pages};
+    return {templates: {elements: templates.reverse(), play: "scroll"}, pages: _pages};
   }
   appearElement(element) {
     element.opacity = 0;
@@ -127,17 +127,18 @@ class Parser {
       id: newElement.id,
       x: oldElement.x,
       y: oldElement.y,
+      w: oldElement.w,
+      h: oldElement.h,
       opacity: 1,
       to: { translate:
             [newElement.x - oldElement.x,
              newElement.y - oldElement.y]
           },
     }
-    if (newElement.h !== oldElement.h) {
-      elementDiff.h = newElement.h;
-    }
-    if (newElement.w !== oldElement.w) {
-      elementDiff.w = newElement.w;
+    if (newElement.h !== oldElement.h || newElement.w !== oldElement.w) {
+      elementDiff.to.scale = [ newElement.w / oldElement.w,  newElement.h / oldElement.h];
+      elementDiff.to.translate = [elementDiff.to.translate[0] + (newElement.w - oldElement.w) / 2,
+                                  elementDiff.to.translate[1] + (newElement.h - oldElement.h) / 2 ]
     }
     return elementDiff;
   }
