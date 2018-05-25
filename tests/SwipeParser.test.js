@@ -9,6 +9,12 @@ describe('swipe', () => {
   afterEach(() => {
   });
   
+  function compareJsonResult(path, json) {
+    // fs.writeFileSync(__dirname + path, JSON.stringify(json, null, 1));
+    const res_json = JSON.parse(fs.readFileSync(__dirname + path, 'utf8'));
+    assert.deepEqual(json, res_json)
+  }
+  
   describe('Test swipe', function () {
     it("should ok if empty doc", function (){
       const gDoc = {};
@@ -23,7 +29,7 @@ describe('swipe', () => {
       assert.isEmpty(res.templates);
     });
 
-    it("should valid swipe page created", function (){
+    it("should valid swipe page created 1", function (){
       const gDoc = JSON.parse(fs.readFileSync(__dirname + "/testData/gDoc1.json", 'utf8'));
       const _G = null;
       const _desktopDirectory = null;
@@ -41,12 +47,11 @@ describe('swipe', () => {
       assert.typeOf(res.templates, 'object');
       assert.isNotEmpty(res.templates);
 
-      // fs.writeFileSync(__dirname + "/testData/res1.json", JSON.stringify(res, null, 1));
-      const res_json = JSON.parse(fs.readFileSync(__dirname + "/testData/res1.json", 'utf8'));
-      assert.deepEqual(res, res_json)
+      compareJsonResult("/testData/res1.json", res);
     });
 
-    it("should valid swipe page created", function (){
+    
+    it("should valid swipe page created 2", function (){
       const gDoc = JSON.parse(fs.readFileSync(__dirname + "/testData/gDoc1.json", 'utf8'));
       const _G = null;
       const _desktopDirectory = null;
@@ -65,9 +70,7 @@ describe('swipe', () => {
       assert.isNotEmpty(res.templates);
 
       // console.log(JSON.stringify(res, null, 1));
-      // fs.writeFileSync(__dirname + "/testData/res2.json", JSON.stringify(res, null, 1));
-      const res_json = JSON.parse(fs.readFileSync(__dirname + "/testData/res2.json", 'utf8'));
-      assert.deepEqual(res, res_json)
+      compareJsonResult("/testData/res2.json", res);
     });
 
     it("should valid swipe page created", function (){
@@ -79,13 +82,11 @@ describe('swipe', () => {
       const res = parser.getPages();
 
       // console.log(JSON.stringify(res, null, 1));
-      // fs.writeFileSync(__dirname + "/testData/res3.json", JSON.stringify(res, null, 1));
-      const res_json = JSON.parse(fs.readFileSync(__dirname + "/testData/res3.json", 'utf8'));
-      assert.deepEqual(res, res_json)
+      compareJsonResult("/testData/res3.json", res);
     });
 
     
-    it("should valid swipe page created", function (){
+    it("should get valid swipe element diff", function (){
       const _G = null;
       const _desktopDirectory = null;
 

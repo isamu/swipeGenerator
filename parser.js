@@ -129,13 +129,13 @@ class Parser {
       id: newElement.id,
       x: oldElement.x,
       y: oldElement.y,
-      w: oldElement.w,
-      h: oldElement.h,
       opacity: 1,
       to: { translate: [newElement.x - oldElement.x, newElement.y - oldElement.y]
       }
     };
     if (newElement.h !== oldElement.h || newElement.w !== oldElement.w) {
+      elementDiff.w = oldElement.w;
+      elementDiff.h = oldElement.h;
       elementDiff.to.scale = [newElement.w / oldElement.w, newElement.h / oldElement.h];
       elementDiff.to.translate = [elementDiff.to.translate[0] + (newElement.w - oldElement.w) / 2, elementDiff.to.translate[1] + (newElement.h - oldElement.h) / 2];
     }
