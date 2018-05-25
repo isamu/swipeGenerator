@@ -4,6 +4,7 @@ class Parser {
     this.doc = doc;
     this.generator = generator;
     this.swipePath = swipePath;
+    this.generatedImages = {};
   }
 
   getSwipe() {
@@ -81,8 +82,6 @@ class Parser {
     return {templates: {elements: templates, play: "scroll"}, pages: _pages};
   }
   diffElement(oldElement, newElement) {
-    // console.log(JSON.stringify(oldElement, null, 1));
-    // console.log(JSON.stringify(newElement, null, 1));
     const elementDiff = {
       id: newElement.id,
       x: oldElement.x,
@@ -104,21 +103,24 @@ class Parser {
     const generator = this.generator;
     const instance = this;
     const swipePath = this.swipePath;
+    const id = (layer.smartObject) ? layer.smartObject.ID : layer.id;
     var elem = {
-      id: (layer.smartObject) ? layer.smartObject.ID : layer.id
+      id: id
     }
     if (layer.type === "textLayer") {
       elem.text = layer.text.textKey;
     }
     if (layer.type === "layer") {
       if (generator) {
-        // todo  generate by smartObject and cache if exist
-        var map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
-          generator.savePixmap(map, swipePath + "/" + layer.id + ".jpg",
-                               { ppi: 72, format: "jpg" });
-        });
+        if (!this.generatedImages[id]) {
+          var map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
+            generator.savePixmap(map, swipePath + "/" + id + ".jpg",
+                                 { ppi: 72, format: "jpg" });
+          });
+          this.generatedImages[id] = true;
+        }
       }
-      elem.img = layer.id + ".jpg";
+      elem.img = id + ".jpg";
     }
     if (layer.bounds) {
       elem.y = layer.bounds.top;
