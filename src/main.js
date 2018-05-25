@@ -56,20 +56,8 @@ var Parser = require('./parser.js');
         fs.mkdirSync(swipePath);
       }
       const parse = new Parser(gDoc, _G, swipePath);
+      const swipe = parse.getSwipe()
 
-      const res = parse.getPages()
-      var swipe = {
-	      type: "net.swipe.swipe",
-	      title: "from photoshop",
-	      dimension: [720, 1280],
-        pages: res.pages,
-        templates: {
-          pages: res.templates,
-        },
-      }
-      if (gDoc.bounds) {
-        swipe.dimension = [gDoc.bounds.right - gDoc.bounds.left, gDoc.bounds.bottom - gDoc.bounds.top];
-      }
       var filename = "main.swipe"
       // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
       fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");

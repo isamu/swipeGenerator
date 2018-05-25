@@ -1,0 +1,96 @@
+{
+ "type": "net.swipe.swipe",
+ "title": "from photoshop",
+ "dimension": [
+  576,
+  1024
+ ],
+ "pages": [
+  {
+   "elements": [
+    {
+     "id": "84068205-2521-1e4b-939e-86351085ed9a"
+    },
+    {
+     "id": "bcb00327-1ca5-5246-acca-3768c2345cca"
+    },
+    {
+     "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d"
+    }
+   ],
+   "scene": "s0",
+   "play": "auto"
+  },
+  {
+   "elements": [
+    {
+     "id": "84068205-2521-1e4b-939e-86351085ed9a",
+     "x": 0,
+     "y": 640,
+     "to": {
+      "translate": [
+       0,
+       0
+      ]
+     }
+    },
+    {
+     "id": "bcb00327-1ca5-5246-acca-3768c2345cca",
+     "x": 0,
+     "y": 466,
+     "to": {
+      "translate": [
+       0,
+       -466
+      ]
+     }
+    },
+    {
+     "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
+     "x": 0,
+     "y": 314,
+     "to": {
+      "translate": [
+       0,
+       0
+      ]
+     }
+    }
+   ],
+   "scene": "s0"
+  }
+ ],
+ "templates": {
+  "pages": {
+   "s0": {
+    "elements": [
+     {
+      "id": "84068205-2521-1e4b-939e-86351085ed9a",
+      "img": "19.jpg",
+      "y": 640,
+      "x": 0,
+      "h": 384,
+      "w": 576
+     },
+     {
+      "id": "bcb00327-1ca5-5246-acca-3768c2345cca",
+      "img": "21.jpg",
+      "y": 466,
+      "x": 0,
+      "h": 432,
+      "w": 576
+     },
+     {
+      "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
+      "img": "17.jpg",
+      "y": 314,
+      "x": 0,
+      "h": 396,
+      "w": 288
+     }
+    ],
+    "play": "scroll"
+   }
+  }
+ }
+}

@@ -1,0 +1,163 @@
+{
+ "version": "1.5.0",
+ "timeStamp": 1527206268.189,
+ "count": 3,
+ "id": 195,
+ "file": "/Users/isamu/Downloads/練習用/swipe.psd",
+ "bounds": {
+  "top": 0,
+  "left": 0,
+  "bottom": 1136,
+  "right": 640
+ },
+ "selection": [
+  7
+ ],
+ "resolution": 600,
+ "globalLight": {
+  "angle": 90,
+  "altitude": 30
+ },
+ "generatorSettings": false,
+ "profile": "sRGB IEC61966-2.1",
+ "mode": "RGBColor",
+ "depth": 8,
+ "layers": [
+  {
+   "id": 11,
+   "index": 9,
+   "type": "layerSection",
+   "name": "グループ 1 のコピー",
+   "bounds": {
+    "top": -255,
+    "left": 0,
+    "bottom": 1371,
+    "right": 640
+   },
+   "visible": true,
+   "clipped": false,
+   "blendOptions": {
+    "mode": "passThrough"
+   },
+   "generatorSettings": false,
+   "layers": [
+    {
+     "id": 10,
+     "index": 8,
+     "type": "layer",
+     "name": "レイヤー 2",
+     "bounds": {
+      "top": 142,
+      "left": 0,
+      "bottom": 697,
+      "right": 581
+     },
+     "visible": true,
+     "clipped": false,
+     "pixels": true,
+     "generatorSettings": false
+    },
+    {
+     "id": 9,
+     "index": 7,
+     "type": "layer",
+     "name": "レイヤー 1",
+     "bounds": {
+      "top": 467,
+      "left": 38,
+      "bottom": 1371,
+      "right": 601
+     },
+     "visible": true,
+     "clipped": false,
+     "pixels": true,
+     "generatorSettings": false
+    },
+    {
+     "id": 8,
+     "index": 6,
+     "type": "layer",
+     "name": "レイヤー 0",
+     "bounds": {
+      "top": -255,
+      "left": 0,
+      "bottom": 601,
+      "right": 640
+     },
+     "visible": true,
+     "clipped": false,
+     "pixels": true,
+     "generatorSettings": false
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "index": 4,
+   "type": "layerSection",
+   "name": "グループ 1",
+   "bounds": {
+    "top": 108,
+    "left": 0,
+    "bottom": 1136,
+    "right": 640
+   },
+   "visible": true,
+   "clipped": false,
+   "blendOptions": {
+    "mode": "passThrough"
+   },
+   "generatorSettings": false,
+   "layers": [
+    {
+     "id": 4,
+     "index": 3,
+     "type": "layer",
+     "name": "レイヤー 2",
+     "bounds": {
+      "top": 581,
+      "left": 0,
+      "bottom": 1136,
+      "right": 581
+     },
+     "visible": true,
+     "clipped": false,
+     "pixels": true,
+     "generatorSettings": false
+    },
+    {
+     "id": 3,
+     "index": 2,
+     "type": "layer",
+     "name": "レイヤー 1",
+     "bounds": {
+      "top": 108,
+      "left": 77,
+      "bottom": 1012,
+      "right": 640
+     },
+     "visible": true,
+     "clipped": false,
+     "pixels": true,
+     "generatorSettings": false
+    },
+    {
+     "id": 2,
+     "index": 1,
+     "type": "layer",
+     "name": "レイヤー 0",
+     "bounds": {
+      "top": 315,
+      "left": 205,
+      "bottom": 856,
+      "right": 558
+     },
+     "visible": true,
+     "clipped": false,
+     "pixels": true,
+     "generatorSettings": false
+    }
+   ]
+  }
+ ]
+}
