@@ -25,15 +25,15 @@ export class Parser {
     return swipe;
   }
   getPages() {
-    var ret = [];
-    var i = 0;
+    let ret = [];
+    let i = 0;
     const doc = this.doc;
     const instance = this;
 
     const templates = {};
     if (doc && doc.layers) {
       doc.layers.forEach((layer) => {
-        var pages = [];
+        let pages = [];
         if (layer.type !== "layerSection") {
           pages.push({
             elements: [instance.parseElement(layer, doc)],
@@ -155,7 +155,7 @@ export class Parser {
     const instance = this;
     const swipePath = this.swipePath;
     const id = (layer.smartObject) ? layer.smartObject.ID : layer.id;
-    var elem = {
+    let elem = {
       id: id,
       name: layer.name,
     }
@@ -165,7 +165,7 @@ export class Parser {
     if (layer.type === "layer") {
       if (generator) {
         if (!this.generatedImages[id]) {
-          var map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
+          let map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
             generator.savePixmap(map, swipePath + "/" + id + ".jpg",
                                  { ppi: 72, format: "jpg" });
           });
@@ -184,11 +184,11 @@ export class Parser {
   }
   // return array
   parseLayer(layer, doc) {
-    var ret = [];
+    let ret = [];
     const instance = this;
     
     if (layer.layers) {
-      var elems = [];
+      let elems = [];
       layer.layers.forEach((nestedLayer) => {
         if (nestedLayer.type !== "layerSection") { 
           elems.push(instance.parseElement(nestedLayer, doc));

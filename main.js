@@ -1,9 +1,19 @@
 "use strict";
 
-var _parser = require('./parser.js');
+var _parser = require("./parser.js");
+
+var _fs = require("fs");
+
+var fs = _interopRequireWildcard(_fs);
+
+var _path = require("path");
+
+var path = _interopRequireWildcard(_path);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 (function () {
-  var _G; // Generator 
+  let _G; // Generator 
 
   const MENU_GENERATOR_SWIPE = 'GENERATOR-SWIPE',
         docInfoFlags = {
@@ -18,8 +28,6 @@ var _parser = require('./parser.js');
     getDefaultLayerFX: true,
     getPathData: true
   };
-  const fs = require("fs");
-  const path = require("path");
   const _homeDirectory = process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"],
         _desktopDirectory = _homeDirectory && path.resolve(_homeDirectory, "Desktop");
 
@@ -33,7 +41,7 @@ var _parser = require('./parser.js');
   }
 
   function printDebug(doc) {
-    var psd = stringify(doc);
+    let psd = stringify(doc);
 
     _G.evaluateJSXFile(__dirname + '/jsx/copy.jsx', { clipboard: psd });
   }
@@ -58,7 +66,7 @@ var _parser = require('./parser.js');
       const parse = new _parser.Parser(gDoc, _G, swipePath);
       const swipe = parse.getSwipe();
 
-      var filename = "main.swipe";
+      let filename = "main.swipe";
       // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
       fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");
       copyIndex(swipePath);

@@ -1,9 +1,11 @@
 "use strict";
 
 import {Parser} from './parser.js';
+import * as fs from "fs";
+import * as path from "path";
 
 (function () {
-  var _G // Generator 
+  let _G // Generator 
 
   const MENU_GENERATOR_SWIPE = 'GENERATOR-SWIPE',
       docInfoFlags = {
@@ -18,8 +20,6 @@ import {Parser} from './parser.js';
         getDefaultLayerFX:    true,
         getPathData:          true
       };
-  const fs = require("fs");
-  const path = require("path");
   const _homeDirectory = process.env[(process.platform === "win32") ? "USERPROFILE" : "HOME"],
       _desktopDirectory = _homeDirectory && path.resolve(_homeDirectory, "Desktop");
   
@@ -33,7 +33,7 @@ import {Parser} from './parser.js';
   }
 
   function printDebug(doc) {
-    var psd = stringify(doc);
+    let psd = stringify(doc);
     
     _G.evaluateJSXFile(__dirname+'/jsx/copy.jsx', { clipboard: psd });
   }
@@ -58,7 +58,7 @@ import {Parser} from './parser.js';
       const parse = new Parser(gDoc, _G, swipePath);
       const swipe = parse.getSwipe()
 
-      var filename = "main.swipe"
+      let filename = "main.swipe"
       // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
       fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");
       copyIndex(swipePath);

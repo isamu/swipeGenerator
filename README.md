@@ -41,5 +41,5 @@ https://qiita.com/isamua/items/ef9b7bafdb7422ebbcc9 (in Japanese)
 
 MIT License
 
-opyright (c) 2018 isamu. All rights reserved.
+copyright (c) 2018 isamu. All rights reserved.
 
