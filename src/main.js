@@ -1,6 +1,6 @@
 "use strict";
 
-var Parser = require('./parser.js');
+import Parser from './parser.js';
 
 (function () {
   var _G // Generator 

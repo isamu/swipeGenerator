@@ -52,6 +52,16 @@ class Parser {
     }
     return {pages: ret, templates: templates};
   }
+  parseElememtName(name) {
+    if (name.startsWith("loop")) {
+      return {loop: {
+        style: "wiggle",
+        count:3
+      }};
+    } else {
+      return {};
+    }
+  }
   getTemplates(pages) {
     let _pages = [];
     let templatesCache = {}
@@ -65,7 +75,11 @@ class Parser {
     pages.forEach((page) => {
       let elements = [];
       if (page.elements) {
-        page.elements.forEach((element) => {
+        page.elements.forEach((elem) => {
+          const meta = this.parseElememtName(elem.name);
+          delete elem.name;
+          const element = Object.assign(elem, meta)
+          
           let status = "";
           if (current_page > 0) {
             if (prev_elements[element.id]) {
@@ -101,13 +115,17 @@ class Parser {
         current_elements = {};
         current_page = current_page + 1;
       }
-      _pages.push({elements: elements.reverse(), scene: page.scene});
+      const new_page = Object.assign(this.parsePageName(page.name), {elements: elements.reverse(), scene: page.scene});
+      _pages.push(new_page);
     });
     if (_pages.length > 0) {
       _pages[0].play = "auto";
     }
     return {templates: {elements: templates.reverse(), play: "scroll"}, pages: _pages};
   }
+  parsePageName(name) {
+    return {transition: "fadeIn"};
+  }  
   appearElement(element) {
     element.opacity = 0;
     element.to = {
@@ -148,7 +166,8 @@ class Parser {
     const swipePath = this.swipePath;
     const id = (layer.smartObject) ? layer.smartObject.ID : layer.id;
     var elem = {
-      id: id
+      id: id,
+      name: layer.name,
     }
     if (layer.type === "textLayer") {
       elem.text = layer.text.textKey;
@@ -188,8 +207,12 @@ class Parser {
         }
       });
       if (elems.length > 0) {
-        ret.push({elements: elems});
+        ret.push({
+          name: layer.name,
+          elements: elems
+        });
       }
+
     }
     return ret;
   }

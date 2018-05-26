@@ -1,6 +1,10 @@
 "use strict";
 
-var Parser = require('./parser.js');
+var _parser = require('./parser.js');
+
+var _parser2 = _interopRequireDefault(_parser);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
   var _G; // Generator 
@@ -55,7 +59,7 @@ var Parser = require('./parser.js');
       if (!fs.existsSync(swipePath)) {
         fs.mkdirSync(swipePath);
       }
-      const parse = new Parser(gDoc, _G, swipePath);
+      const parse = new _parser2.default(gDoc, _G, swipePath);
       const swipe = parse.getSwipe();
 
       var filename = "main.swipe";
