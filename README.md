@@ -32,6 +32,11 @@ into generator-core, run app.js
 $ node app.js -f    ../swipeGenerator/
 ```
 
+### Document
+
+https://qiita.com/isamua/items/4d328b587434d111e495 (in Japanese)
+https://qiita.com/isamua/items/ef9b7bafdb7422ebbcc9 (in Japanese)
+
 ## License
 
 MIT License
