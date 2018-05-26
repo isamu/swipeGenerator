@@ -1,5 +1,16 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Parser = undefined;
+
+var _name_parser = require("./name_parser.js");
+
+var nameParser = _interopRequireWildcard(_name_parser);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 class Parser {
   constructor(doc, generator, swipePath) {
     // console.log(JSON.stringify(doc, null, 1));
@@ -54,16 +65,6 @@ class Parser {
     }
     return { pages: ret, templates: templates };
   }
-  parseElememtName(name) {
-    if (name.startsWith("loop")) {
-      return { loop: {
-          style: "wiggle",
-          count: 3
-        } };
-    } else {
-      return {};
-    }
-  }
   getTemplates(pages) {
     let _pages = [];
     let templatesCache = {};
@@ -78,7 +79,7 @@ class Parser {
       let elements = [];
       if (page.elements) {
         page.elements.forEach(elem => {
-          const meta = this.parseElememtName(elem.name);
+          const meta = nameParser.parseElememtName(elem.name);
           delete elem.name;
           const element = Object.assign(elem, meta);
 
@@ -117,16 +118,13 @@ class Parser {
         current_elements = {};
         current_page = current_page + 1;
       }
-      const new_page = Object.assign(this.parsePageName(page.name), { elements: elements.reverse(), scene: page.scene });
+      const new_page = Object.assign(nameParser.parsePageName(page.name), { elements: elements.reverse(), scene: page.scene });
       _pages.push(new_page);
     });
     if (_pages.length > 0) {
       _pages[0].play = "auto";
     }
     return { templates: { elements: templates.reverse(), play: "scroll" }, pages: _pages };
-  }
-  parsePageName(name) {
-    return { transition: "fadeIn" };
   }
   appearElement(element) {
     element.opacity = 0;
@@ -215,5 +213,4 @@ class Parser {
   }
 
 }
-
-module.exports = Parser;
+exports.Parser = Parser;

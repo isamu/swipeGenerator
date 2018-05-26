@@ -1,6 +1,7 @@
-var assert = require('chai').assert;
-var Parser = require('../parser.js');
-var fs = require("fs");
+import {assert} from chai;
+import {Parser} from '../parser.js';
+import {fs} from require("fs");
+
 describe('swipe', () => {
     
   beforeEach(() => {

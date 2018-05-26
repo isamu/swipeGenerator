@@ -1,4 +1,6 @@
-class Parser {
+import * as nameParser from './name_parser.js'
+
+export class Parser {
   constructor(doc, generator, swipePath) {
     // console.log(JSON.stringify(doc, null, 1));
     this.doc = doc;
@@ -52,16 +54,6 @@ class Parser {
     }
     return {pages: ret, templates: templates};
   }
-  parseElememtName(name) {
-    if (name.startsWith("loop")) {
-      return {loop: {
-        style: "wiggle",
-        count:3
-      }};
-    } else {
-      return {};
-    }
-  }
   getTemplates(pages) {
     let _pages = [];
     let templatesCache = {}
@@ -76,7 +68,7 @@ class Parser {
       let elements = [];
       if (page.elements) {
         page.elements.forEach((elem) => {
-          const meta = this.parseElememtName(elem.name);
+          const meta = nameParser.parseElememtName(elem.name);
           delete elem.name;
           const element = Object.assign(elem, meta)
           
@@ -115,7 +107,7 @@ class Parser {
         current_elements = {};
         current_page = current_page + 1;
       }
-      const new_page = Object.assign(this.parsePageName(page.name), {elements: elements.reverse(), scene: page.scene});
+      const new_page = Object.assign(nameParser.parsePageName(page.name), {elements: elements.reverse(), scene: page.scene});
       _pages.push(new_page);
     });
     if (_pages.length > 0) {
@@ -123,9 +115,6 @@ class Parser {
     }
     return {templates: {elements: templates.reverse(), play: "scroll"}, pages: _pages};
   }
-  parsePageName(name) {
-    return {transition: "fadeIn"};
-  }  
   appearElement(element) {
     element.opacity = 0;
     element.to = {
@@ -219,4 +208,4 @@ class Parser {
   
 }
 
-module.exports = Parser
+

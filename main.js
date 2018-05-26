@@ -2,10 +2,6 @@
 
 var _parser = require('./parser.js');
 
-var _parser2 = _interopRequireDefault(_parser);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 (function () {
   var _G; // Generator 
 
@@ -59,13 +55,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       if (!fs.existsSync(swipePath)) {
         fs.mkdirSync(swipePath);
       }
-      const parse = new _parser2.default(gDoc, _G, swipePath);
+      const parse = new _parser.Parser(gDoc, _G, swipePath);
       const swipe = parse.getSwipe();
 
       var filename = "main.swipe";
       // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
       fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");
       copyIndex(swipePath);
+      console.log("OK");
       // console.log(stringify(swipe));
     }, error);
   }

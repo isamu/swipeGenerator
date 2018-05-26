@@ -1,6 +1,6 @@
 "use strict";
 
-import Parser from './parser.js';
+import {Parser} from './parser.js';
 
 (function () {
   var _G // Generator 
@@ -62,6 +62,7 @@ import Parser from './parser.js';
       // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
       fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");
       copyIndex(swipePath);
+      console.log("OK");
       // console.log(stringify(swipe));
     }, error);
   }

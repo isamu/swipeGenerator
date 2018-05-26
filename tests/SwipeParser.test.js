@@ -1,8 +1,11 @@
 'use strict';
 
+var _parser = require('../parser.js');
+
 var assert = require('chai').assert;
-var Parser = require('../parser.js');
+
 var fs = require("fs");
+
 describe('swipe', () => {
 
   beforeEach(() => {});
@@ -21,7 +24,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
 
-      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
       const res = parser.getPages();
       assert.typeOf(res.pages, 'array');
       assert.lengthOf(res.pages, 0);
@@ -34,7 +37,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
 
-      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
       const res = parser.getPages();
 
       // console.log(res);
@@ -55,7 +58,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
 
-      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
       const res = parser.getSwipe();
 
       // console.log(res);
@@ -77,7 +80,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
 
-      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
       const res = parser.getPages();
 
       // console.log(JSON.stringify(res, null, 1));
@@ -88,7 +91,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
 
-      const parser = new Parser({}, _G, _desktopDirectory);
+      const parser = new _parser.Parser({}, _G, _desktopDirectory);
 
       const diff = parser.diffElement({
         "img": "19.jpg",
