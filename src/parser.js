@@ -108,7 +108,7 @@ export class Parser {
         current_elements = {};
         current_page = current_page + 1;
       }
-      const new_page = Object.assign(nameParser.parsePageName(page.name), {elements: elements.reverse(), scene: page.scene});
+      const new_page = Object.assign({elements: elements.reverse(), scene: page.scene}, nameParser.parsePageName(page.name));
       _pages.push(new_page);
     });
     if (_pages.length > 0) {
