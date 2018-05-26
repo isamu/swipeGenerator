@@ -1,6 +1,6 @@
-import {assert} from chai;
+import {assert} from 'chai';
 import {Parser} from '../parser.js';
-import {fs} from require("fs");
+import * as fs from "fs";
 
 describe('swipe', () => {
     
@@ -11,7 +11,7 @@ describe('swipe', () => {
   });
   
   function compareJsonResult(path, json) {
-    // fs.writeFileSync(__dirname + path, JSON.stringify(json, null, 1));
+    // fs.writeFileSync(__dirname + "/.." + path, JSON.stringify(json, null, 1));
     const res_json = JSON.parse(fs.readFileSync(__dirname + "/.." + path, 'utf8'));
     assert.deepEqual(json, res_json)
   }
@@ -140,5 +140,15 @@ describe('swipe', () => {
     // diffElement
     // parseElement
     // parseLayer 
+  
+    it("should valid swipe page created with meta", function (){
+      const gDoc = JSON.parse(fs.readFileSync(__dirname + "/../testData/gDoc3.json", 'utf8'));
+      const _G = null;
+      const _desktopDirectory = null;
+      
+      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const res = parser.getPages();
+      compareJsonResult("/testData/res4.json", res);
+    });
   });
 });

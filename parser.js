@@ -78,12 +78,12 @@ class Parser {
     pages.forEach(page => {
       let elements = [];
       if (page.elements) {
-        page.elements.forEach(elem => {
-          const meta = nameParser.parseElememtName(elem.name);
-          delete elem.name;
-          const element = Object.assign(elem, meta);
+        page.elements.forEach(element => {
+          const meta = nameParser.parseElememtName(element.name);
+          delete element.name;
 
           let status = "";
+          let new_element = {};
           if (current_page > 0) {
             if (prev_elements[element.id]) {
               delete prev_elements[element.id];
@@ -101,14 +101,15 @@ class Parser {
             templates.push(element);
 
             if (status === "new") {
-              elements.push(instance.appearElement({ id: element.id }));
+              new_element = instance.appearElement({ id: element.id });
             } else {
-              elements.push({ id: element.id, opacity: 1 });
+              new_element = { id: element.id, opacity: 1 };
             }
           } else {
-            elements.push(instance.diffElement(templatesCache[element.id], element));
+            new_element = instance.diffElement(templatesCache[element.id], element);
             templatesCache[element.id] = element;
           }
+          elements.push(Object.assign(new_element, meta));
           current_elements[element.id] = element;
         });
         Object.keys(prev_elements).map(key => {

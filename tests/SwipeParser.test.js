@@ -1,10 +1,14 @@
 'use strict';
 
+var _chai = require('chai');
+
 var _parser = require('../parser.js');
 
-var assert = require('chai').assert;
+var _fs = require('fs');
 
-var fs = require("fs");
+var fs = _interopRequireWildcard(_fs);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 describe('swipe', () => {
 
@@ -13,9 +17,9 @@ describe('swipe', () => {
   afterEach(() => {});
 
   function compareJsonResult(path, json) {
-    // fs.writeFileSync(__dirname + path, JSON.stringify(json, null, 1));
+    // fs.writeFileSync(__dirname + "/.." + path, JSON.stringify(json, null, 1));
     const res_json = JSON.parse(fs.readFileSync(__dirname + "/.." + path, 'utf8'));
-    assert.deepEqual(json, res_json);
+    _chai.assert.deepEqual(json, res_json);
   }
 
   describe('Test swipe', function () {
@@ -26,10 +30,10 @@ describe('swipe', () => {
 
       const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
       const res = parser.getPages();
-      assert.typeOf(res.pages, 'array');
-      assert.lengthOf(res.pages, 0);
-      assert.typeOf(res.templates, 'object');
-      assert.isEmpty(res.templates);
+      _chai.assert.typeOf(res.pages, 'array');
+      _chai.assert.lengthOf(res.pages, 0);
+      _chai.assert.typeOf(res.templates, 'object');
+      _chai.assert.isEmpty(res.templates);
     });
 
     it("should valid swipe page created 1", function () {
@@ -41,14 +45,14 @@ describe('swipe', () => {
       const res = parser.getPages();
 
       // console.log(res);
-      assert.typeOf(res.pages, 'array');
-      assert.lengthOf(res.pages, 2);
+      _chai.assert.typeOf(res.pages, 'array');
+      _chai.assert.lengthOf(res.pages, 2);
 
-      assert.typeOf(res.pages[0], 'object');
-      assert.typeOf(res.pages[1], 'object');
+      _chai.assert.typeOf(res.pages[0], 'object');
+      _chai.assert.typeOf(res.pages[1], 'object');
 
-      assert.typeOf(res.templates, 'object');
-      assert.isNotEmpty(res.templates);
+      _chai.assert.typeOf(res.templates, 'object');
+      _chai.assert.isNotEmpty(res.templates);
 
       compareJsonResult("/testData/res1.json", res);
     });
@@ -62,14 +66,14 @@ describe('swipe', () => {
       const res = parser.getSwipe();
 
       // console.log(res);
-      assert.typeOf(res.pages, 'array');
-      assert.lengthOf(res.pages, 2);
+      _chai.assert.typeOf(res.pages, 'array');
+      _chai.assert.lengthOf(res.pages, 2);
 
-      assert.typeOf(res.pages[0], 'object');
-      assert.typeOf(res.pages[1], 'object');
+      _chai.assert.typeOf(res.pages[0], 'object');
+      _chai.assert.typeOf(res.pages[1], 'object');
 
-      assert.typeOf(res.templates, 'object');
-      assert.isNotEmpty(res.templates);
+      _chai.assert.typeOf(res.templates, 'object');
+      _chai.assert.isNotEmpty(res.templates);
 
       // console.log(JSON.stringify(res, null, 1));
       compareJsonResult("/testData/res2.json", res);
@@ -107,7 +111,7 @@ describe('swipe', () => {
         "h": 384,
         "w": 576
       });
-      assert.deepEqual(diff, { id: '84068205-2521-1e4b-939e-86351085ed9a',
+      _chai.assert.deepEqual(diff, { id: '84068205-2521-1e4b-939e-86351085ed9a',
         opacity: 1,
         x: 0,
         y: 640,
@@ -127,7 +131,7 @@ describe('swipe', () => {
         "h": 432,
         "w": 576
       });
-      assert.deepEqual(diff2, { id: 'bcb00327-1ca5-5246-acca-3768c2345cca',
+      _chai.assert.deepEqual(diff2, { id: 'bcb00327-1ca5-5246-acca-3768c2345cca',
         opacity: 1,
         x: 0,
         y: 466,
@@ -137,5 +141,15 @@ describe('swipe', () => {
     // diffElement
     // parseElement
     // parseLayer 
+
+    it("should valid swipe page created with meta", function () {
+      const gDoc = JSON.parse(fs.readFileSync(__dirname + "/../testData/gDoc3.json", 'utf8'));
+      const _G = null;
+      const _desktopDirectory = null;
+
+      const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
+      const res = parser.getPages();
+      compareJsonResult("/testData/res4.json", res);
+    });
   });
 });
