@@ -43,7 +43,7 @@
      "id": 20,
      "index": 10,
      "type": "layerSection",
-     "name": "1 transition:fadeIn play:scroll duration:0.2 repleat:true vibration:false",
+     "name": "1",
      "bounds": {
       "top": 314,
       "left": 0,
@@ -98,7 +98,7 @@
        "id": 21,
        "index": 8,
        "type": "layer",
-       "name": "loop:style:wiggle:count:3 opacity:0.9 rpeat:false",
+       "name": "IMG",
        "bounds": {
         "top": 466,
         "left": 0,
