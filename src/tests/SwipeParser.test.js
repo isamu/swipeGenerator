@@ -74,7 +74,7 @@ describe('swipe', () => {
       compareJsonResult("/testData/res2.json", res);
     });
 
-    it("should valid swipe page created", function (){
+    it("should valid swipe page created 3", function (){
       const gDoc = JSON.parse(fs.readFileSync(__dirname + "/../testData/gDoc2.json", 'utf8'));
       const _G = null;
       const _desktopDirectory = null;

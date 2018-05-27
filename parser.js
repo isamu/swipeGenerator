@@ -82,35 +82,42 @@ class Parser {
           const meta = nameParser.parseElememtName(element.name);
           delete element.name;
 
-          let status = "";
-          let new_element = {};
-          if (current_page > 0) {
-            if (prev_elements[element.id]) {
-              delete prev_elements[element.id];
-            } else {
-              status = "new";
+          if (element.smartObject) {
+            delete element.smartObject;
+            let status = "";
+            let new_element = {};
+            if (current_page > 0) {
+              if (prev_elements[element.id]) {
+                delete prev_elements[element.id];
+              } else {
+                status = "new";
+              }
             }
-          }
 
-          if (!templatesCache[element.id]) {
-            let newElement = Object.assign({}, element);
-            delete newElement.id;
-            templatesCache[element.id] = newElement;
+            if (!templatesCache[element.id]) {
+              let newElement = Object.assign({}, element);
+              delete newElement.id;
 
-            element.opacity = 0;
-            templates.push(element);
+              templatesCache[element.id] = newElement;
 
-            if (status === "new") {
-              new_element = instance.appearElement({ id: element.id });
+              element.opacity = 0;
+              templates.push(element);
+
+              if (status === "new") {
+                new_element = instance.appearElement({ id: element.id });
+              } else {
+                new_element = { id: element.id, opacity: 1 };
+              }
             } else {
-              new_element = { id: element.id, opacity: 1 };
+              new_element = instance.diffElement(templatesCache[element.id], element);
+              templatesCache[element.id] = element;
             }
+            elements.push(Object.assign(new_element, meta));
+            current_elements[element.id] = element;
           } else {
-            new_element = instance.diffElement(templatesCache[element.id], element);
-            templatesCache[element.id] = element;
+            delete element.smartObject;
+            elements.push(element);
           }
-          elements.push(Object.assign(new_element, meta));
-          current_elements[element.id] = element;
         });
         Object.keys(prev_elements).map(key => {
           elements.push(instance.hideElement(prev_elements[key]));
@@ -165,6 +172,7 @@ class Parser {
     const id = layer.smartObject ? layer.smartObject.ID : layer.id;
     let elem = {
       id: id,
+      smartObject: layer.smartObject ? true : false,
       name: layer.name
     };
     if (layer.type === "textLayer") {

@@ -1,10 +1,6 @@
 {
  "pages": [
   {
-   "transition": "fadeIn",
-   "play": "auto",
-   "duration": 0.2,
-   "repeat": true,
    "elements": [
     {
      "id": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
@@ -24,7 +20,11 @@
      "opacity": 1
     }
    ],
-   "scene": "s0"
+   "scene": "s0",
+   "transition": "fadeIn",
+   "play": "auto",
+   "duration": 0.2,
+   "repeat": true
   },
   {
    "elements": [
