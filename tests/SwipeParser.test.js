@@ -151,5 +151,15 @@ describe('swipe', () => {
       const res = parser.getPages();
       compareJsonResult("/testData/res4.json", res);
     });
+
+    it("should valid swipe page created 4", function () {
+      const gDoc = JSON.parse(fs.readFileSync(__dirname + "/../testData/gDoc4.json", 'utf8'));
+      const _G = null;
+      const _desktopDirectory = null;
+
+      const parser = new _parser.Parser(gDoc, _G, _desktopDirectory);
+      const res = parser.getPages();
+      compareJsonResult("/testData/res5.json", res);
+    });
   });
 });

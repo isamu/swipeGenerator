@@ -181,13 +181,20 @@ class Parser {
     if (layer.type === "layer") {
       if (generator) {
         if (!this.generatedImages[id]) {
-          let map = generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true }).then(map => {
-            generator.savePixmap(map, swipePath + "/" + id + ".jpg", { ppi: 72, format: "jpg" });
-          });
+          if (layer.pixels) {
+            generator.getPixmap(doc.id, layer.id, {}).then(map => {
+              generator.savePixmap(map, swipePath + "/" + id + ".gif", { ppi: 72, format: "gif" });
+            });
+          } else {
+            generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true }).then(map => {
+              generator.savePixmap(map, swipePath + "/" + id + ".jpg", { ppi: 72, format: "jpg" });
+            });
+          }
+
           this.generatedImages[id] = true;
         }
       }
-      elem.img = id + ".jpg";
+      elem.img = id + (layer.pixels ? ".gif" : ".jpg");
     }
     if (layer.bounds) {
       elem.y = layer.bounds.top;

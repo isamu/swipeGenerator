@@ -1,0 +1,618 @@
+{
+ "version": "1.5.0",
+ "timeStamp": 1527458414.81,
+ "count": 59,
+ "id": 910,
+ "file": "/Users/isamu/Downloads/180527SWIPEズッチー2.psd",
+ "bounds": {
+  "top": 0,
+  "left": 0,
+  "bottom": 2127,
+  "right": 1500
+ },
+ "selection": [
+  29
+ ],
+ "resolution": 600,
+ "globalLight": {
+  "angle": 30,
+  "altitude": 30
+ },
+ "generatorSettings": false,
+ "profile": "sRGB IEC61966-2.1",
+ "mode": "RGBColor",
+ "depth": 8,
+ "layers": [
+  {
+   "id": 62,
+   "index": 32,
+   "type": "layerSection",
+   "name": "シーン１",
+   "bounds": {
+    "top": 0,
+    "left": 0,
+    "bottom": 2127,
+    "right": 1500
+   },
+   "visible": true,
+   "clipped": false,
+   "blendOptions": {
+    "mode": "passThrough"
+   },
+   "generatorSettings": false,
+   "layers": [
+    {
+     "id": 68,
+     "index": 31,
+     "type": "layerSection",
+     "name": "ページ１",
+     "bounds": {
+      "top": 0,
+      "left": 0,
+      "bottom": 2127,
+      "right": 1500
+     },
+     "visible": false,
+     "clipped": false,
+     "blendOptions": {
+      "mode": "passThrough"
+     },
+     "generatorSettings": false,
+     "layers": [
+      {
+       "id": 67,
+       "index": 30,
+       "type": "layer",
+       "name": "レイヤー 5",
+       "bounds": {
+        "top": 161,
+        "left": 462,
+        "bottom": 1848,
+        "right": 971
+       },
+       "boundsWithFX": {
+        "top": 151,
+        "left": 452,
+        "bottom": 1858,
+        "right": 981
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false,
+       "layerEffects": {
+        "frameFX": {
+         "enabled": true,
+         "present": true,
+         "showInDialog": true,
+         "style": "outsetFrame",
+         "paintType": "solidColor",
+         "mode": "normal",
+         "opacity": {
+          "value": 100,
+          "units": "percentUnit"
+         },
+         "size": 8,
+         "color": {
+          "red": 255,
+          "green": 255,
+          "blue": 255
+         },
+         "overprint": false
+        }
+       }
+      },
+      {
+       "id": 66,
+       "index": 29,
+       "type": "layer",
+       "name": "ごくらく ごくらく ",
+       "bounds": {
+        "top": 177,
+        "left": 973,
+        "bottom": 299,
+        "right": 1037
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 65,
+       "index": 28,
+       "type": "layer",
+       "name": "レイヤー 7",
+       "bounds": {
+        "top": 0,
+        "left": 0,
+        "bottom": 2127,
+        "right": 1500
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      }
+     ]
+    },
+    {
+     "id": 61,
+     "index": 26,
+     "type": "layerSection",
+     "name": "ページ2",
+     "bounds": {
+      "top": 0,
+      "left": 0,
+      "bottom": 2127,
+      "right": 1500
+     },
+     "visible": false,
+     "clipped": false,
+     "blendOptions": {
+      "mode": "passThrough"
+     },
+     "generatorSettings": false,
+     "layers": [
+      {
+       "id": 60,
+       "index": 25,
+       "type": "layer",
+       "name": "レイヤー 5",
+       "bounds": {
+        "top": 161,
+        "left": 462,
+        "bottom": 1848,
+        "right": 971
+       },
+       "boundsWithFX": {
+        "top": 151,
+        "left": 452,
+        "bottom": 1858,
+        "right": 981
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false,
+       "layerEffects": {
+        "frameFX": {
+         "enabled": true,
+         "present": true,
+         "showInDialog": true,
+         "style": "outsetFrame",
+         "paintType": "solidColor",
+         "mode": "normal",
+         "opacity": {
+          "value": 100,
+          "units": "percentUnit"
+         },
+         "size": 8,
+         "color": {
+          "red": 255,
+          "green": 255,
+          "blue": 255
+         },
+         "overprint": false
+        }
+       }
+      },
+      {
+       "id": 59,
+       "index": 24,
+       "type": "layer",
+       "name": "ごくらく ごくらく ",
+       "bounds": {
+        "top": 194,
+        "left": 973,
+        "bottom": 315,
+        "right": 1037
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 55,
+       "index": 23,
+       "type": "layer",
+       "name": "レイヤー 7",
+       "bounds": {
+        "top": 0,
+        "left": 0,
+        "bottom": 2127,
+        "right": 1500
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      }
+     ]
+    },
+    {
+     "id": 53,
+     "index": 21,
+     "type": "layerSection",
+     "name": "ページ3",
+     "bounds": {
+      "top": 0,
+      "left": 0,
+      "bottom": 2127,
+      "right": 1500
+     },
+     "visible": false,
+     "clipped": false,
+     "blendOptions": {
+      "mode": "passThrough"
+     },
+     "generatorSettings": false,
+     "layers": [
+      {
+       "id": 52,
+       "index": 20,
+       "type": "layer",
+       "name": "レイヤー 5",
+       "bounds": {
+        "top": 161,
+        "left": 462,
+        "bottom": 1848,
+        "right": 971
+       },
+       "boundsWithFX": {
+        "top": 151,
+        "left": 452,
+        "bottom": 1858,
+        "right": 981
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false,
+       "layerEffects": {
+        "frameFX": {
+         "enabled": true,
+         "present": true,
+         "showInDialog": true,
+         "style": "outsetFrame",
+         "paintType": "solidColor",
+         "mode": "normal",
+         "opacity": {
+          "value": 100,
+          "units": "percentUnit"
+         },
+         "size": 8,
+         "color": {
+          "red": 255,
+          "green": 255,
+          "blue": 255
+         },
+         "overprint": false
+        }
+       }
+      },
+      {
+       "id": 51,
+       "index": 19,
+       "type": "layer",
+       "name": "ごくらく ごくらく ",
+       "bounds": {
+        "top": 177,
+        "left": 973,
+        "bottom": 299,
+        "right": 1037
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 50,
+       "index": 18,
+       "type": "layer",
+       "name": "疲れが一気に 吹き飛ぶぜ",
+       "bounds": {
+        "top": 133,
+        "left": 440,
+        "bottom": 315,
+        "right": 507
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 47,
+       "index": 17,
+       "type": "layer",
+       "name": "レイヤー 7",
+       "bounds": {
+        "top": 0,
+        "left": 0,
+        "bottom": 2127,
+        "right": 1500
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      }
+     ]
+    },
+    {
+     "id": 45,
+     "index": 15,
+     "type": "layerSection",
+     "name": "ページ4",
+     "bounds": {
+      "top": 0,
+      "left": 0,
+      "bottom": 2127,
+      "right": 1500
+     },
+     "visible": false,
+     "clipped": false,
+     "blendOptions": {
+      "mode": "passThrough"
+     },
+     "generatorSettings": false,
+     "layers": [
+      {
+       "id": 44,
+       "index": 14,
+       "type": "layer",
+       "name": "レイヤー 5",
+       "bounds": {
+        "top": 161,
+        "left": 462,
+        "bottom": 1848,
+        "right": 971
+       },
+       "boundsWithFX": {
+        "top": 151,
+        "left": 452,
+        "bottom": 1858,
+        "right": 981
+       },
+       "visible": false,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false,
+       "layerEffects": {
+        "frameFX": {
+         "enabled": true,
+         "present": true,
+         "showInDialog": true,
+         "style": "outsetFrame",
+         "paintType": "solidColor",
+         "mode": "normal",
+         "opacity": {
+          "value": 100,
+          "units": "percentUnit"
+         },
+         "size": 8,
+         "color": {
+          "red": 255,
+          "green": 255,
+          "blue": 255
+         },
+         "overprint": false
+        }
+       }
+      },
+      {
+       "id": 43,
+       "index": 13,
+       "type": "layer",
+       "name": "ごくらく ごくらく ",
+       "bounds": {
+        "top": 177,
+        "left": 973,
+        "bottom": 299,
+        "right": 1037
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 42,
+       "index": 12,
+       "type": "layer",
+       "name": "疲れが一気に 吹き飛ぶぜ",
+       "bounds": {
+        "top": 133,
+        "left": 440,
+        "bottom": 315,
+        "right": 507
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 41,
+       "index": 11,
+       "type": "layer",
+       "name": "30分後 ",
+       "bounds": {
+        "top": 1186,
+        "left": 973,
+        "bottom": 1306,
+        "right": 1004
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 39,
+       "index": 10,
+       "type": "layer",
+       "name": "レイヤー 7",
+       "bounds": {
+        "top": 0,
+        "left": 0,
+        "bottom": 2127,
+        "right": 1500
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      }
+     ]
+    },
+    {
+     "id": 34,
+     "index": 8,
+     "type": "layerSection",
+     "name": "グループ 4",
+     "bounds": {
+      "top": 0,
+      "left": 0,
+      "bottom": 2127,
+      "right": 1500
+     },
+     "visible": true,
+     "clipped": false,
+     "blendOptions": {
+      "mode": "passThrough"
+     },
+     "generatorSettings": false,
+     "layers": [
+      {
+       "id": 13,
+       "index": 7,
+       "type": "layer",
+       "name": "レイヤー 5",
+       "bounds": {
+        "top": 161,
+        "left": 462,
+        "bottom": 1848,
+        "right": 971
+       },
+       "boundsWithFX": {
+        "top": 151,
+        "left": 452,
+        "bottom": 1858,
+        "right": 981
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false,
+       "layerEffects": {
+        "frameFX": {
+         "enabled": true,
+         "present": true,
+         "showInDialog": true,
+         "style": "outsetFrame",
+         "paintType": "solidColor",
+         "mode": "normal",
+         "opacity": {
+          "value": 100,
+          "units": "percentUnit"
+         },
+         "size": 8,
+         "color": {
+          "red": 255,
+          "green": 255,
+          "blue": 255
+         },
+         "overprint": false
+        }
+       }
+      },
+      {
+       "id": 14,
+       "index": 6,
+       "type": "layer",
+       "name": "ごくらく ごくらく ",
+       "bounds": {
+        "top": 177,
+        "left": 973,
+        "bottom": 299,
+        "right": 1037
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 15,
+       "index": 5,
+       "type": "layer",
+       "name": "疲れが一気に 吹き飛ぶぜ",
+       "bounds": {
+        "top": 133,
+        "left": 440,
+        "bottom": 315,
+        "right": 507
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 18,
+       "index": 4,
+       "type": "layer",
+       "name": "30分後 ",
+       "bounds": {
+        "top": 1186,
+        "left": 973,
+        "bottom": 1306,
+        "right": 1004
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 19,
+       "index": 3,
+       "type": "layer",
+       "name": "また疲れ ちゃった",
+       "bounds": {
+        "top": 1660,
+        "left": 967,
+        "bottom": 1781,
+        "right": 1032
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      },
+      {
+       "id": 17,
+       "index": 2,
+       "type": "layer",
+       "name": "レイヤー 7",
+       "bounds": {
+        "top": 0,
+        "left": 0,
+        "bottom": 2127,
+        "right": 1500
+       },
+       "visible": true,
+       "clipped": false,
+       "pixels": true,
+       "generatorSettings": false
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
