@@ -19,6 +19,8 @@ function parseElememtName(name) {
     processObject("loop", tagName, properties, ret);
     processNumber("opacity", tagName, properties, ret);
     processBoolean("repeat", tagName, properties, ret);
+
+    processString("bc", tagName, properties, ret);
   });
   return ret;
 }
@@ -67,6 +69,10 @@ function parsePageName(name) {
     processString("play", tagName, properties, ret);
     processNumber("duration", tagName, properties, ret);
     processBoolean("repeat", tagName, properties, ret);
+
+    processString("bc", tagName, properties, ret);
+    processBoolean("rewind", tagName, properties, ret);
+    processBoolean("vibrate", tagName, properties, ret);
   });
   return ret;
 }
