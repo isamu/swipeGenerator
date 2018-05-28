@@ -157,6 +157,13 @@ export class Parser {
     }
     return elementDiff;
   }
+  changeColor(color) {
+    return "#" + this.intToHex(color.red) + this.intToHex(color.green) + this.intToHex(color.blue) + "ff";
+  }
+  intToHex(i) {
+    const chara =  (i & 0x00FFFFFF).toString(16).toUpperCase();
+    return "00".substring(0, 2 - chara.length) + chara;
+  }
   parseElement(layer, doc) {
     const generator = this.generator;
     const instance = this;
@@ -168,6 +175,10 @@ export class Parser {
       name: layer.name,
     }
     if (layer.type === "textLayer") {
+      if (layer.text.textStyleRange && layer.text.textStyleRange[0].textStyle && layer.text.textStyleRange[0].textStyle.size) {
+        elem.fontSize = layer.text.textStyleRange[0].textStyle.size.value;
+        elem.textColor = instance.changeColor(layer.text.textStyleRange[0].textStyle.color);
+      }
       elem.text = layer.text.textKey;
     }
     const format = nameParser.formatParser(layer.name, (layer.pixels) ? "gif" : "jpg");

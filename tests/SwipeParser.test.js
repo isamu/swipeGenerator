@@ -176,5 +176,15 @@ describe('swipe', () => {
       console.log(res);
       compareJsonResult("/testData/res6.json", res);
     });
+
+    it("should valid swipe page created 5", function () {
+      const gDoc = JSON.parse(fs.readFileSync(__dirname + "/../testData/textLayer.json", 'utf8'));
+      const _G = null;
+      const _desktopDirectory = null;
+
+      const parser = new _parser.Parser({}, _G, _desktopDirectory);
+      const res = parser.parseElement(gDoc);
+      compareJsonResult("/testData/res7.json", res);
+    });
   });
 });
