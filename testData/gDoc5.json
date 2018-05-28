@@ -1,9 +1,9 @@
 {
  "version": "1.5.0",
- "timeStamp": 1527141583.374,
- "count": 6,
- "id": 195,
- "file": "/Users/swipe/swipe_test.psd",
+ "timeStamp": 1527482907.81,
+ "count": 3,
+ "id": 973,
+ "file": "/Users/swipe/swipe_sample4.psd",
  "bounds": {
   "top": 0,
   "left": 0,
@@ -22,10 +22,10 @@
  "depth": 8,
  "layers": [
   {
-   "id": 5,
-   "index": 11,
+   "id": 6,
+   "index": 10,
    "type": "layerSection",
-   "name": "pages",
+   "name": "1",
    "bounds": {
     "top": 0,
     "left": 0,
@@ -40,17 +40,17 @@
    "generatorSettings": false,
    "layers": [
     {
-     "id": 20,
-     "index": 10,
+     "id": 4,
+     "index": 9,
      "type": "layerSection",
      "name": "1",
      "bounds": {
-      "top": 314,
+      "top": 0,
       "left": 0,
       "bottom": 1024,
       "right": 576
      },
-     "visible": true,
+     "visible": false,
      "clipped": false,
      "blendOptions": {
       "mode": "passThrough"
@@ -58,13 +58,50 @@
      "generatorSettings": false,
      "layers": [
       {
-       "id": 19,
-       "index": 9,
+       "id": 2,
+       "index": 8,
        "type": "layer",
-       "name": "IMG_9851",
+       "name": "IMG_5097",
        "bounds": {
-        "top": 640,
+        "top": 0,
         "left": 0,
+        "bottom": 384,
+        "right": 288
+       },
+       "visible": true,
+       "clipped": false,
+       "generatorSettings": false,
+       "smartObject": {
+        "ID": "67b5c9ac-978e-a641-a647-f1216fb53f98",
+        "placed": "8e14bee5-a59f-4c43-987e-0cc40dba12f2",
+        "crop": 1,
+        "antiAliasType": 16,
+        "type": 2,
+        "transform": [
+         0,
+         0,
+         288,
+         0,
+         288,
+         384,
+         0,
+         384
+        ],
+        "comp": -1,
+        "compInfo": {
+         "compID": -1,
+         "originalCompID": -1
+        }
+       }
+      },
+      {
+       "id": 3,
+       "index": 7,
+       "type": "layer",
+       "name": "IMG_5081",
+       "bounds": {
+        "top": 808,
+        "left": 288,
         "bottom": 1024,
         "right": 576
        },
@@ -72,94 +109,20 @@
        "clipped": false,
        "generatorSettings": false,
        "smartObject": {
-        "ID": "84068205-2521-1e4b-939e-86351085ed9a",
-        "placed": "6cc1cf56-0456-c54b-b38b-0ecfec802547",
+        "ID": "08b6cbba-ea80-4941-9946-046d9ed87d4f",
+        "placed": "5262f43c-92a4-334a-b3b1-7bb49bd8f66d",
         "crop": 1,
         "antiAliasType": 16,
         "type": 2,
         "transform": [
-         0,
-         640,
+         288,
+         808,
          576,
-         640,
+         808,
          576,
          1024,
-         0,
+         288,
          1024
-        ],
-        "comp": -1,
-        "compInfo": {
-         "compID": -1,
-         "originalCompID": -1
-        }
-       }
-      },
-      {
-       "id": 21,
-       "index": 8,
-       "type": "layer",
-       "name": "IMG",
-       "bounds": {
-        "top": 466,
-        "left": 0,
-        "bottom": 898,
-        "right": 576
-       },
-       "visible": true,
-       "clipped": false,
-       "generatorSettings": false,
-       "smartObject": {
-        "ID": "bcb00327-1ca5-5246-acca-3768c2345cca",
-        "placed": "d5909c19-9685-fc49-ba29-eb2049144204",
-        "crop": 1,
-        "antiAliasType": 16,
-        "type": 2,
-        "transform": [
-         0,
-         466,
-         576,
-         466,
-         576,
-         898,
-         0,
-         898
-        ],
-        "comp": -1,
-        "compInfo": {
-         "compID": -1,
-         "originalCompID": -1
-        }
-       }
-      },
-      {
-       "id": 17,
-       "index": 7,
-       "type": "layer",
-       "name": "IMG_9852",
-       "bounds": {
-        "top": 314,
-        "left": 0,
-        "bottom": 710,
-        "right": 288
-       },
-       "visible": true,
-       "clipped": false,
-       "generatorSettings": false,
-       "smartObject": {
-        "ID": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
-        "placed": "c35909c1-a7e2-fb42-9d3a-7b606039c79b",
-        "crop": 1,
-        "antiAliasType": 16,
-        "type": 2,
-        "transform": [
-         0,
-         314,
-         288,
-         314,
-         288,
-         710,
-         0,
-         710
         ],
         "comp": -1,
         "compInfo": {
@@ -171,7 +134,7 @@
      ]
     },
     {
-     "id": 26,
+     "id": 11,
      "index": 5,
      "type": "layerSection",
      "name": "2",
@@ -189,31 +152,31 @@
      "generatorSettings": false,
      "layers": [
       {
-       "id": 25,
+       "id": 10,
        "index": 4,
        "type": "layer",
-       "name": "IMG_9851",
+       "name": "IMG_5097",
        "bounds": {
         "top": 640,
         "left": 0,
         "bottom": 1024,
-        "right": 576
+        "right": 288
        },
        "visible": true,
        "clipped": false,
        "generatorSettings": false,
        "smartObject": {
-        "ID": "84068205-2521-1e4b-939e-86351085ed9a",
-        "placed": "b78f85ba-a7c0-a74d-80df-27a9b1e2cb8c",
+        "ID": "67b5c9ac-978e-a641-a647-f1216fb53f98",
+        "placed": "9b07abc4-f663-3649-873a-99df07691a79",
         "crop": 1,
         "antiAliasType": 16,
         "type": 2,
         "transform": [
          0,
          640,
-         576,
+         288,
          640,
-         576,
+         288,
          1024,
          0,
          1024
@@ -226,71 +189,34 @@
        }
       },
       {
-       "id": 24,
+       "id": 9,
        "index": 3,
        "type": "layer",
-       "name": "IMG_5094",
+       "name": "loop:",
        "bounds": {
         "top": 0,
-        "left": 0,
-        "bottom": 432,
+        "left": 288,
+        "bottom": 216,
         "right": 576
        },
        "visible": true,
        "clipped": false,
        "generatorSettings": false,
        "smartObject": {
-        "ID": "bcb00327-1ca5-5246-acca-3768c2345cca",
-        "placed": "0c5c61dd-2121-1445-812f-73f81b914d0e",
+        "ID": "08b6cbba-ea80-4941-9946-046d9ed87d4f",
+        "placed": "044b4589-c9b7-8e46-b10e-82c90dc45db2",
         "crop": 1,
         "antiAliasType": 16,
         "type": 2,
         "transform": [
-         0,
+         288,
          0,
          576,
          0,
          576,
-         432,
-         0,
-         432
-        ],
-        "comp": -1,
-        "compInfo": {
-         "compID": -1,
-         "originalCompID": -1
-        }
-       }
-      },
-      {
-       "id": 23,
-       "index": 2,
-       "type": "layer",
-       "name": "IMG_9852",
-       "bounds": {
-        "top": 314,
-        "left": 0,
-        "bottom": 710,
-        "right": 288
-       },
-       "visible": true,
-       "clipped": false,
-       "generatorSettings": false,
-       "smartObject": {
-        "ID": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
-        "placed": "6a3033c3-0794-7c48-ae2a-f35b1202ce08",
-        "crop": 1,
-        "antiAliasType": 16,
-        "type": 2,
-        "transform": [
-         0,
-         314,
+         216,
          288,
-         314,
-         288,
-         710,
-         0,
-         710
+         216
         ],
         "comp": -1,
         "compInfo": {
@@ -302,98 +228,37 @@
      ]
     }
    ]
+  },
+  {
+   "id": 1,
+   "index": 0,
+   "type": "backgroundLayer",
+   "name": "背景",
+   "protection": {
+    "transparency": true,
+    "position": true,
+    "artboardAutonest": true
+   },
+   "bounds": {
+    "top": 0,
+    "left": 0,
+    "bottom": 1024,
+    "right": 576
+   },
+   "visible": true,
+   "clipped": false,
+   "pixels": true,
+   "generatorSettings": false
   }
  ],
  "placed": [
   {
-   "placedID": "41ad414b-b58e-2f43-8d7a-ecdfa155ed8d",
-   "name": "IMG_9852.jpg",
-   "fileType": 1246774599,
-   "fileCreator": 0,
-   "size": 12005915,
-   "file": "IMG_9852.jpg",
-   "bounds": {
-    "top": 0,
-    "left": 0,
-    "bottom": 6000,
-    "right": 4000
-   },
-   "selection": [
-    0
-   ],
-   "resolution": 72,
-   "globalLight": {
-    "angle": -60,
-    "altitude": 30
-   },
-   "generatorSettings": false,
-   "profile": "sRGB IEC61966-2.1",
-   "mode": "RGBColor",
-   "depth": 8,
-   "layers": [
-    {
-     "id": 1,
-     "index": 0,
-     "bounds": {
-      "top": 0,
-      "left": 0,
-      "bottom": 6000,
-      "right": 4000
-     },
-     "type": "backgroundLayer",
-     "name": "背景",
-     "pixels": true
-    }
-   ]
-  },
-  {
-   "placedID": "84068205-2521-1e4b-939e-86351085ed9a",
-   "name": "IMG_9851.jpg",
-   "fileType": 1246774599,
-   "fileCreator": 0,
-   "size": 9937456,
-   "file": "IMG_9851.jpg",
-   "bounds": {
-    "top": 0,
-    "left": 0,
-    "bottom": 4000,
-    "right": 6000
-   },
-   "selection": [
-    0
-   ],
-   "resolution": 72,
-   "globalLight": {
-    "angle": 30,
-    "altitude": 30
-   },
-   "generatorSettings": false,
-   "profile": "sRGB IEC61966-2.1",
-   "mode": "RGBColor",
-   "depth": 8,
-   "layers": [
-    {
-     "id": 1,
-     "index": 0,
-     "bounds": {
-      "top": 0,
-      "left": 0,
-      "bottom": 4000,
-      "right": 6000
-     },
-     "type": "backgroundLayer",
-     "name": "背景",
-     "pixels": true
-    }
-   ]
-  },
-  {
-   "placedID": "bcb00327-1ca5-5246-acca-3768c2345cca",
-   "name": "IMG_5094.psb",
+   "placedID": "08b6cbba-ea80-4941-9946-046d9ed87d4f",
+   "name": "IMG_5081.psb",
    "fileType": 943870018,
    "fileCreator": 943868237,
-   "size": 35245824,
-   "file": "IMG_5094.psb",
+   "size": 27513344,
+   "file": "IMG_5081.psb",
    "bounds": {
     "top": 0,
     "left": 0,
@@ -421,6 +286,47 @@
       "left": 0,
       "bottom": 3024,
       "right": 4032
+     },
+     "type": "backgroundLayer",
+     "name": "背景",
+     "pixels": true
+    }
+   ]
+  },
+  {
+   "placedID": "67b5c9ac-978e-a641-a647-f1216fb53f98",
+   "name": "IMG_5097.psb",
+   "fileType": 943870018,
+   "fileCreator": 943868237,
+   "size": 34478937,
+   "file": "IMG_5097.psb",
+   "bounds": {
+    "top": 0,
+    "left": 0,
+    "bottom": 4032,
+    "right": 3024
+   },
+   "selection": [
+    0
+   ],
+   "resolution": 72,
+   "globalLight": {
+    "angle": -60,
+    "altitude": 30
+   },
+   "generatorSettings": false,
+   "profile": "Display P3",
+   "mode": "RGBColor",
+   "depth": 8,
+   "layers": [
+    {
+     "id": 1,
+     "index": 0,
+     "bounds": {
+      "top": 0,
+      "left": 0,
+      "bottom": 4032,
+      "right": 3024
      },
      "type": "backgroundLayer",
      "name": "背景",

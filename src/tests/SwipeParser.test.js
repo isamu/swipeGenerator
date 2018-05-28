@@ -10,8 +10,10 @@ describe('swipe', () => {
   afterEach(() => {
   });
   
-  function compareJsonResult(path, json) {
-    // fs.writeFileSync(__dirname + "/.." + path, JSON.stringify(json, null, 1));
+  function compareJsonResult(path, json, write=false) {
+    if (write) {
+      fs.writeFileSync(__dirname + "/.." + path, JSON.stringify(json, null, 1));
+    }
     const res_json = JSON.parse(fs.readFileSync(__dirname + "/.." + path, 'utf8'));
     assert.deepEqual(json, res_json)
   }
@@ -159,6 +161,17 @@ describe('swipe', () => {
       const parser = new Parser(gDoc, _G, _desktopDirectory);
       const res = parser.getPages();
       compareJsonResult("/testData/res5.json", res);
+    });
+
+    it("should valid swipe page created 5", function (){
+      const gDoc = JSON.parse(fs.readFileSync(__dirname + "/../testData/gDoc5.json", 'utf8'));
+      const _G = null;
+      const _desktopDirectory = null;
+      
+      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const res = parser.getPages();
+      console.log(res);
+      compareJsonResult("/testData/res6.json", res);
     });
   });
 });
