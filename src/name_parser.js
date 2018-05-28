@@ -32,7 +32,11 @@ function processNumber(name, tagName, properties, ret) {
 }
 function processString(name, tagName, properties, ret) {
   if (tagName.toLowerCase() === name && properties[0] !== undefined && properties[0] !== null) {
-    ret[name] = properties[0];
+    if (ret) {
+      ret[name] = properties[0];
+    } else {
+      return properties[0];
+    }
   }
 }
 function processBoolean(name, tagName, properties, ret) {
@@ -58,3 +62,20 @@ export function parsePageName(name) {
   });
   return ret;
 }  
+const valid_formats = {
+  "jpg": true,
+  "png": true,
+  "gif": true,
+}
+export function formatParser(name, default_format="jpg") {
+  let ret = default_format;
+  name.split(/(\s|,)+/g).forEach((tags) => {
+    const properties = tags.split(":");
+    const tagName = properties.shift();
+    let format = null;
+    if ((format = processString("format", tagName, properties, null)) && valid_formats[format]) {
+      ret = format;
+    }
+  });
+  return ret;
+}

@@ -170,13 +170,19 @@ export class Parser {
     if (layer.type === "textLayer") {
       elem.text = layer.text.textKey;
     }
+    const format = nameParser.formatParser(layer.name, (layer.pixels) ? "gif" : "jpg");
     if (layer.type === "layer") {
       if (generator) {
         if (!this.generatedImages[id]) {
-          if (layer.pixels) {
+          if (format === "gif") {
             generator.getPixmap(doc.id, layer.id, {}).then((map) => {
               generator.savePixmap(map, swipePath + "/" + id + ".gif",
                                    { ppi: 72, format: "gif" });
+            });
+          } else if (format === "png") {
+            generator.getPixmap(doc.id, layer.id, {}).then((map) => {
+              generator.savePixmap(map, swipePath + "/" + id + ".png",
+                                   { ppi: 72, format: "png" });
             });
           } else {
             generator.getPixmap(doc.id, layer.id, { useJPGEncoding: true}).then((map) => {
@@ -188,7 +194,7 @@ export class Parser {
           this.generatedImages[id] = true;
         }
       }
-      elem.img = id + (layer.pixels? ".gif" : ".jpg");
+      elem.img = id + "." + format;
     }
     if (layer.bounds) {
       elem.y = layer.bounds.top;

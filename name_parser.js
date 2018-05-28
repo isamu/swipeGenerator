@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.parseElememtName = parseElememtName;
 exports.parsePageName = parsePageName;
+exports.formatParser = formatParser;
 // opacity
 // repeat
 function parseElememtName(name) {
@@ -39,7 +40,11 @@ function processNumber(name, tagName, properties, ret) {
 }
 function processString(name, tagName, properties, ret) {
   if (tagName.toLowerCase() === name && properties[0] !== undefined && properties[0] !== null) {
-    ret[name] = properties[0];
+    if (ret) {
+      ret[name] = properties[0];
+    } else {
+      return properties[0];
+    }
   }
 }
 function processBoolean(name, tagName, properties, ret) {
@@ -62,6 +67,25 @@ function parsePageName(name) {
     processString("play", tagName, properties, ret);
     processNumber("duration", tagName, properties, ret);
     processBoolean("repeat", tagName, properties, ret);
+  });
+  return ret;
+}
+const valid_formats = {
+  "jpg": true,
+  "png": true,
+  "gif": true
+};
+function formatParser(name) {
+  let default_format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "jpg";
+
+  let ret = default_format;
+  name.split(/(\s|,)+/g).forEach(tags => {
+    const properties = tags.split(":");
+    const tagName = properties.shift();
+    let format = null;
+    if ((format = processString("format", tagName, properties, null)) && valid_formats[format]) {
+      ret = format;
+    }
   });
   return ret;
 }
