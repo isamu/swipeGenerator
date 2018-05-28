@@ -1,0 +1,155 @@
+{
+ "id": 16,
+ "index": 3,
+ "type": "textLayer",
+ "name": "あいうえお！",
+ "bounds": {
+  "top": 437,
+  "left": 156,
+  "bottom": 483,
+  "right": 430
+ },
+ "visible": true,
+ "clipped": false,
+ "generatorSettings": false,
+ "text": {
+  "textKey": "あいうえお！",
+  "textClickPoint": {
+   "horizontal": {
+    "value": 26.4262,
+    "units": "percentUnit"
+   },
+   "vertical": {
+    "value": 46.8178,
+    "units": "percentUnit"
+   }
+  },
+  "boundingBox": {
+   "left": {
+    "value": 0.96,
+    "units": "pointsUnit"
+   },
+   "top": {
+    "value": -9.882,
+    "units": "pointsUnit"
+   },
+   "right": {
+    "value": 66.72,
+    "units": "pointsUnit"
+   },
+   "bottom": {
+    "value": 0.828051,
+    "units": "pointsUnit"
+   }
+  },
+  "bounds": {
+   "left": {
+    "value": 0,
+    "units": "pointsUnit"
+   },
+   "top": {
+    "value": -10.5601,
+    "units": "pointsUnit"
+   },
+   "right": {
+    "value": 72,
+    "units": "pointsUnit"
+   },
+   "bottom": {
+    "value": 4.06805,
+    "units": "pointsUnit"
+   }
+  },
+  "textShape": [
+   {
+    "char": "paint",
+    "orientation": "horizontal",
+    "transform": {
+     "xx": 1,
+     "xy": 0,
+     "yx": 0,
+     "yy": 1,
+     "tx": 0,
+     "ty": 0
+    },
+    "rowCount": 1,
+    "columnCount": 1,
+    "rowMajorOrder": true,
+    "rowGutter": {
+     "value": 0,
+     "units": "pointsUnit"
+    },
+    "columnGutter": {
+     "value": 0,
+     "units": "pointsUnit"
+    },
+    "spacing": {
+     "value": 0,
+     "units": "pointsUnit"
+    },
+    "frameBaselineAlignment": "alignByAscent",
+    "firstBaselineMinimum": {
+     "value": 0,
+     "units": "pointsUnit"
+    },
+    "base": {
+     "horizontal": 0,
+     "vertical": 0
+    }
+   }
+  ],
+  "antiAlias": "antiAliasSharp",
+  "textGridding": "none",
+  "textStyleRange": [
+   {
+    "from": 0,
+    "to": 7,
+    "textStyle": {
+     "fontName": "Kozuka Gothic Pr6N",
+     "fontStyleName": "R",
+     "size": {
+      "value": 12,
+      "units": "pointsUnit"
+     },
+     "japaneseAlternate": "defaultForm",
+     "lineWidth": {
+      "value": 0.24,
+      "units": "pointsUnit"
+     },
+     "miterLimit": {
+      "value": 0.96,
+      "units": "pointsUnit"
+     },
+     "impliedFontSize": {
+      "value": 12,
+      "units": "pointsUnit"
+     },
+     "impliedBaselineShift": {
+      "value": 0,
+      "units": "pointsUnit"
+     },
+     "contextualLigatures": true,
+     "digitSet": "arabicDigits",
+     "markYDistFromBaseline": {
+      "value": 0,
+      "units": "pointsUnit"
+     },
+     "color": {
+      "red": 11.856,
+      "green": 101.004,
+      "blue": 255
+     }
+    }
+   }
+  ],
+  "paragraphStyleRange": [
+   {
+    "from": 0,
+    "to": 7,
+    "paragraphStyle": {
+     "align": "left"
+    }
+   }
+  ]
+ }
+}
