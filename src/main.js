@@ -58,9 +58,11 @@ import * as path from "path";
       const parse = new Parser(gDoc, _G, swipePath);
       const swipe = parse.getSwipe()
 
-      let filename = "main.swipe"
-      // fs.writeFileSync(swipePath + "/" + filename, stringify(swipe));
-      fs.writeFileSync(swipePath + "/" + filename, "callback(" + stringify(swipe) + ")");
+      let jsfilename = "main.js"
+      let swipefilename = "main.swipe"
+      // fs.writeFileSync(swipePath + "/" + jsfilename, stringify(swipe));
+      fs.writeFileSync(swipePath + "/" + jsfilename, "callback(" + stringify(swipe) + ")");
+      fs.writeFileSync(swipePath + "/" + swipefilename, stringify(swipe));
       copyIndex(swipePath);
       console.log("OK");
       // console.log(stringify(swipe));
@@ -68,6 +70,7 @@ import * as path from "path";
   }
   function copyIndex(swipePath) {
     fs.createReadStream(__dirname + "/template/index.html").pipe(fs.createWriteStream(swipePath + "/index.html"));
+    fs.createReadStream(__dirname + "/template/touch.html").pipe(fs.createWriteStream(swipePath + "/touch.html"));
   }
   module.exports.init = init;
 }());
