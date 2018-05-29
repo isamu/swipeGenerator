@@ -8,9 +8,10 @@ This plug-in makes it easier for users to create [Swipe](https://github.com/swip
 Swipe is a domain-specific, declarative language for non-developers (such as designers, animators, illustrators, musicians, videographers and comic writers) to create media-rich/animated documents that contain photos, videos, images, vector graphics, animations, voices, musics and sound effects, which will be consumed on touch-enabled devices such as smartphones, tablets and touch-enabled set-top-boxes (such as iPhone and Apple TV).
 
 The Swipe Engine that play Swipe media is available in web (javascript), iOS, android.
-https://github.com/swipe-org/swipe (iOS)
-https://github.com/swipe-org/android (androin)
-https://github.com/isamu/swipejs (javascript)
+
+- https://github.com/swipe-org/swipe (iOS)
+- https://github.com/swipe-org/android (androin)
+- https://github.com/isamu/swipejs (javascript)
 
 # Swipe Generator
 
@@ -27,10 +28,10 @@ Run photoshop and open you file, select File > Generate > Generate Swipe.
 Then new folder named your PDS file name will be generate you Desktop or home Directory.
 In the filder there are some files.
 
-index.html  ( Swipe media player for PC)
-touch.html  (Swipe media player for mobile)
-main.swipe ( Swipe media file)
-main.js (Swipe media file, javascript callback style)
+- index.html  ( Swipe media player for PC)
+- touch.html  (Swipe media player for mobile)
+- main.swipe ( Swipe media file)
+- main.js (Swipe media file, javascript callback style)
 
 
 ## Development
