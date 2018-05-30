@@ -189,7 +189,7 @@ class Parser {
       }
       elem.text = layer.text.textKey;
     }
-    const format = nameParser.formatParser(layer.name, layer.pixels ? "gif" : "jpg");
+    const format = nameParser.formatParser(layer.name, layer.pixels ? "png" : "jpg");
     if (layer.type === "layer") {
       if (generator) {
         if (!this.generatedImages[id]) {
