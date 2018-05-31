@@ -105,7 +105,7 @@ export class Parser {
             current_elements[element.id] = element;
           } else {
             delete element.smartObject;
-            elements.push(element);
+            elements.push(Object.assign(element, meta));
           }
         });
         Object.keys(prev_elements).map((key) => {
