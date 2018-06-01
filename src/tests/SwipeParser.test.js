@@ -81,7 +81,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
 
-      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const parser = new Parser(gDoc, _G, _desktopDirectory, "gif");
       const res = parser.getPages();
 
       // console.log(JSON.stringify(res, null, 1));
@@ -158,7 +158,7 @@ describe('swipe', () => {
       const _G = null;
       const _desktopDirectory = null;
       
-      const parser = new Parser(gDoc, _G, _desktopDirectory);
+      const parser = new Parser(gDoc, _G, _desktopDirectory, "gif");
       const res = parser.getPages();
       compareJsonResult("/testData/res5.json", res);
     });
