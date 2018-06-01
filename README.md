@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/isamu/swipeGenerator.png?branch=master)](http://travis-ci.org/isamu/swipeGenerator)
+
 # Swipe Generation Plug-in for Generator
 
 This repository contains a plug-in for Adobe Photoshop CC's Generator extensibility layer.
