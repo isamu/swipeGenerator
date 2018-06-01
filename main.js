@@ -15,7 +15,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 (function () {
   let _G; // Generator 
 
-  const MENU_GENERATOR_SWIPE = 'GENERATOR-SWIPE',
+  const MENU_GENERATOR_SWIPE_PNG = 'GENERATOR_SWIPE_PNG',
+        MENU_GENERATOR_SWIPE_JPG = 'GENERATOR_SWIPE_JPG',
         docInfoFlags = {
     compInfo: true,
     imageInfo: true,
@@ -50,7 +51,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
   }
   function init(generator) {
     _G = generator;
-    _G.addMenuItem(MENU_GENERATOR_SWIPE, "Generate swipe", true, false);
+    _G.addMenuItem(MENU_GENERATOR_SWIPE_PNG, "Generate swipe with png image", true, false);
+    _G.addMenuItem(MENU_GENERATOR_SWIPE_JPG, "Generate swipe with jpeg image", true, false);
     _G.onPhotoshopEvent("generatorMenuChanged", onGeneratorDOMMenuClick);
   }
   function getDirName(doc) {
@@ -58,12 +60,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     return _desktopDirectory + "/" + paths[paths.length - 1].split(".")[0];
   }
   function onGeneratorDOMMenuClick(event) {
+    const target = MENU_GENERATOR_SWIPE_PNG == event.generatorMenuChanged.name ? "png" : "jpg";
     _G.getDocumentInfo(null, docInfoFlags).then(gDoc => {
       const swipePath = getDirName(gDoc);
       if (!fs.existsSync(swipePath)) {
         fs.mkdirSync(swipePath);
       }
-      const parse = new _parser.Parser(gDoc, _G, swipePath);
+      const parse = new _parser.Parser(gDoc, _G, swipePath, target);
       const swipe = parse.getSwipe();
 
       let jsfilename = "main.js";

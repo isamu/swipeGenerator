@@ -12,11 +12,12 @@ var nameParser = _interopRequireWildcard(_name_parser);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 class Parser {
-  constructor(doc, generator, swipePath) {
+  constructor(doc, generator, swipePath, target) {
     // console.log(JSON.stringify(doc, null, 1));
     this.doc = doc;
     this.generator = generator;
     this.swipePath = swipePath;
+    this.target = target;
     this.generatedImages = {};
   }
 
@@ -189,7 +190,7 @@ class Parser {
       }
       elem.text = layer.text.textKey;
     }
-    const format = nameParser.formatParser(layer.name, layer.pixels ? "png" : "jpg");
+    const format = nameParser.formatParser(layer.name, instance.target);
     if (layer.type === "layer") {
       if (generator) {
         if (!this.generatedImages[id]) {

@@ -1,11 +1,12 @@
 import * as nameParser from './name_parser.js'
 
 export class Parser {
-  constructor(doc, generator, swipePath) {
+  constructor(doc, generator, swipePath, target) {
     // console.log(JSON.stringify(doc, null, 1));
     this.doc = doc;
     this.generator = generator;
     this.swipePath = swipePath;
+    this.target = target;
     this.generatedImages = {};
   }
 
@@ -181,7 +182,7 @@ export class Parser {
       }
       elem.text = layer.text.textKey;
     }
-    const format = nameParser.formatParser(layer.name, (layer.pixels) ? "png" : "jpg");
+    const format = nameParser.formatParser(layer.name, instance.target);
     if (layer.type === "layer") {
       if (generator) {
         if (!this.generatedImages[id]) {
