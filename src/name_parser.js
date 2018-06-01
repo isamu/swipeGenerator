@@ -19,11 +19,16 @@ function processObject(name, tagName, properties, ret) {
     const obj = {}
     while (properties.length > 1 ) {
       const spl = properties.splice(0, 2);
-      obj[spl[0]] = spl[1];
+      if (spl[0] == "delta" || spl[0] == "count") {
+        obj[spl[0]] = Number(spl[1]);
+      } else {
+        obj[spl[0]] = spl[1];
+      }
     }
     ret[name] = obj;
   }
 }
+
 function processNumber(name, tagName, properties, ret) {
   if (tagName.toLowerCase() === name && !isNaN(Number(properties[0]))) {
     ret[name] = Number(properties[0]);
