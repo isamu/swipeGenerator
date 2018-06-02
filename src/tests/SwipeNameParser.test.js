@@ -33,7 +33,7 @@ describe('swipe', () => {
       
     });
 
-    it("should bot be return invalid format", function (){
+    it("should not be return invalid format", function (){
       const name1 = "format:doc";
       const ret1 = nameParser.formatParser(name1, "jpg");
       assert.equal(ret1, "jpg");
@@ -50,6 +50,18 @@ describe('swipe', () => {
       const ret4 = nameParser.formatParser(name4, "png");
       assert.equal(ret4, "png");
       
+    });
+
+    it("should be return object include number properity", function (){
+      const name1 = "format:doc";
+      const ret1 = {};
+      nameParser.processObject("loop", "loop", ["delta", "1"], ret1);
+      assert.equal(typeof(ret1.loop.delta), 'number');
+      assert.equal(ret1.loop.delta, 1);
+
+      nameParser.processObject("loop", "loop", ["hoge", "1"], ret1);
+      assert.equal(typeof(ret1.loop.hoge), 'string');
+      assert.equal(ret1.loop.hoge, "1");
     });
   });
 });

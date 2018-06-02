@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.parseElememtName = parseElememtName;
+exports.processObject = processObject;
 exports.parsePageName = parsePageName;
 exports.formatParser = formatParser;
 function parseElememtName(name) {

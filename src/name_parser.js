@@ -14,7 +14,7 @@ export function parseElememtName(name) {
   return ret;
 }
 
-function processObject(name, tagName, properties, ret) {
+export function processObject(name, tagName, properties, ret) {
   if (tagName.toLowerCase() === name) {
     const obj = {}
     while (properties.length > 1 ) {
