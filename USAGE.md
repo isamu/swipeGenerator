@@ -105,7 +105,7 @@ transition:fadeIn play:scroll duration:0.2 repeat:true vibration:false
 
 Then, that shall be reflected on the generating swipe file. Each element connected by : and property is separated by half size space. 
 
-##Image (material) property 
+## Image (material) property 
 
 ### loop
 To assign repeat animation- please see below:
@@ -135,7 +135,7 @@ loop:syle:spin
 ```
 
 - shift: To move to one direction. Select the direction among "n"(north – up), "s"(south-down), "e"(east-right) or "w"(west-left), the default is "s"）
-```
+
 
 ```
  loop:style:shift:direction:e
